@@ -1,0 +1,75 @@
+<body>
+    <h1>My Profile</h1>
+    <div class="container">
+
+        <div class="row">
+            <div class="col-10">
+                <label for="Id">User Id:</label>
+            </div>
+            <div class="col-90">
+                <input type="number" id="userid" name="userid">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-10">
+                <label for="Id">Years of Experiance:</label>
+            </div>
+            <div class="col-90">
+                <input type="number" id="experiance" name="experiance">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-10">
+                <label for="qualification" required>Qualification:</label>
+            </div>
+            <div class="col-90">
+                <select name="qualification" id="qualification">
+                    <option value=" ">Select Qualification:</option>
+                    <option value="Graduation">Graduation</option>
+                    <option value="BTech.">BTech.</option>
+                    <option value="MTech.">MTech.</option>
+                    <option value="MCA">MCA</option>
+                    <option value="BCA">BCA</option>
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-10">
+                <label for="specialization">Specialization:</label>
+            </div>
+            <div class="col-90">
+
+                
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="Spring Boot">
+                    <label class="form-check-label" for="flexCheckChecked">Angular</label>
+                </div>
+                <div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="Spring Boot">
+                        <label class="form-check-label" for="flexCheckChecked">
+                            Spring Boot
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="Spring Boot">
+                        <label class="form-check-label" for="flexCheckChecked">
+                            React js
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="Spring Boot">
+                        <label class="form-check-label" for="flexCheckChecked">
+                            Node js
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <input type="submit" value="Registered" onclick="SaveStudentDetails()">
+        </div>
+    </div>
+</body>
