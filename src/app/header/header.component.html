@@ -1,7 +1,8 @@
 <header class="header">
-  <!-- Primary Navbar-->
-  <nav class="navbar navbar-expand-lg navbar-light py-4 border-bottom border-gray bg-white">
-    <div class="container d-flex align-items-center justify-content-beween"><a class="navbar-brand" href="#"><i class="fa fa-home" aria-hidden="true"></i></a>
+  <!-- Primary Navbar
+  <i class="fa fa-home" aria-hidden="true"></i>-->
+  <!-- <nav class="navbar navbar-expand-lg navbar-light py-4 border-bottom border-gray bg-white">
+    <div class="container d-flex align-items-center justify-content-beween"><a class="navbar-brand" href="#"></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
       <ul class="list-inline mb-0 d-none d-lg-block">
         <li class="list-inline-item mr-3">
@@ -12,13 +13,13 @@
         </li>
       </ul>
     </div>
-  </nav>
+  </nav> -->
   <!-- Secondary Navbar                -->
   <nav class="navbar navbar-expand-lg navbar-light py-0 shadow-sm bg-white">
     <div class="container">
       <div class="collapse navbar-collapse py-3 py-lg-0" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-          <li class="nav-item active"><a class="nav-link pl-lg-0" href="#">Home <span class="sr-only">(current)</span></a></li>
+          <li class="nav-item active"><a class="nav-link pl-lg-0" href="#" style="size: 16px;">Home <span class="sr-only">(current)</span></a></li>
           <li class="nav-item"><a class="nav-link" href="#">About </a></li>
           <li class="nav-item"><a class="nav-link" href="#">Contact </a></li>
           <li class="nav-item dropdown">
@@ -27,9 +28,9 @@
         </ul>
         <ul class="navbar-nav ml-auto">
 
-          <li class="nav-item"><a class="nav-link border-left px-4 bg-primary text-white d-inline-block" routerLink="/register">SIGN UP</a></li>
+          <li class="nav-item"><a class="nav-link border-left px-4 bg-primary text-white d-inline-block" [routerLink]="['/register-user']">SIGN UP</a></li>
 
-          <li class="nav-item"><a class="nav-link border-left px-4 bg-primary text-white d-inline-block" routerLink="/login">LOGIN</a></li>
+          <li class="nav-item"><a class="nav-link border-left px-4 bg-primary text-white d-inline-block" [routerLink]="['/login']">LOGIN</a></li>
         </ul>
 
       </div>
