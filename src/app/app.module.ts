@@ -13,6 +13,12 @@ import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 import { UserprofileComponent } from './userprofile/userprofile.component';
+import { TaskComponent } from './task/task.component';
+import { AvailableComponent } from './available/available.component';
+
+import { ProfileComponent } from './profile/profile.component';
+import { LeaveplanComponent } from './leaveplan/leaveplan.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +28,12 @@ import { UserprofileComponent } from './userprofile/userprofile.component';
     HeaderComponent,
     FooterComponent,
     HomeComponent,
-    UserprofileComponent
+    UserprofileComponent,
+    TaskComponent,
+    AvailableComponent,
+    ProfileComponent,
+    LeaveplanComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
