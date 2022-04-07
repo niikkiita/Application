@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { LoginService } from '../login.service';
 
 @Component({
   selector: 'app-login',
@@ -7,7 +9,32 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  credentials={
+    emailId:'',
+    password:''
+  }
+  constructor( private loginService:LoginService, private router:Router) { }
+
+onSubmit(){
+if((this.credentials.emailId!="" && this.credentials.password!="") && (this.credentials.emailId!=null && this.credentials.password!=null))
+{
+this.loginService.logInThe(this.credentials).subscribe(
+  response=>{
+    alert("log in")
+  },
+  error=>{
+    alert("not correct deatils")
+  }
+  );
+  
+
+}
+else
+{
+console.log("Empty or null values")
+}
+
+}
 
   ngOnInit(): void {
   }

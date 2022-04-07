@@ -6,13 +6,13 @@
   <body>
     <div class="wrapper">
       <div class="title">Login</div>
-      <form action="#">
+      <form (ngSubmit)="onSubmit()">
         <div class="field">
-          <input type="text" required>
+          <input type="text" [(ngModel)]="credentials.emailId" name="username"  required>
           <label>Email Address</label>
         </div>
         <div class="field">
-          <input type="password" required>
+          <input type="password" [(ngModel)]="credentials.password" name="password" required>
           <label>Password</label>
         </div>
         <div class="content">
@@ -27,6 +27,7 @@
         </div>
         <div class="signup-link">Not a member? <a href="#">Signup now</a></div>
       </form>
+      {{credentials | json}}
     </div>
   </body>
 </html>
