@@ -80,6 +80,7 @@ body {
   justify-content: space-between;
   padding: 0 30px 0 30px;
   border-bottom: 1px solid lightgray;
+
 }
 
 .nav_icon {
@@ -129,7 +130,7 @@ main {
   background: #f3f4f6;
   grid-area: main;
   overflow-y: auto;
-  width: 1555px;
+  width: 900px;
 }
 
 .main__container {
@@ -170,8 +171,9 @@ main {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  height: 70px;
+  height: 142px;
   padding: 25px;
+  width: 200px;
   border-radius: 5px;
   background: #ffffff;
   box-shadow: 5px 5px 13px #ededed, -5px -5px 13px #ffffff;
