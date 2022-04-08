@@ -1,7 +1,7 @@
 export class User {
     name!:string;
     userid!:any;
-    email!:string;
+    email_id!:string;
     phone!:string;
     password!:string;
     cpassword!:string;

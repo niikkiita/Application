@@ -1,0 +1,164 @@
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous" />
+
+</head>
+
+<body id="body">
+    <div class="container">
+        <nav class="navbar">
+            <div class="nav_icon" onclick="toggleSidebar()">
+                <i class="fa fa-bars" aria-hidden="true"></i>
+            </div>
+
+            <div class="navbar__right">
+                <a href="#">
+
+                </a>
+                <a href="#">
+
+                </a>
+                <a href="#">
+                    <img width="30" src="assets/avatar.svg" alt="" style="position:absolute; right:-366px; top:20px;" />
+
+                </a>
+            </div>
+        </nav>
+
+        <head>
+            <meta charset="UTF-8" />
+            <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+                integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+                crossorigin="anonymous" />
+
+        </head>
+
+        <body id="body">
+            <div class="container">
+                <nav class="navbar">
+                    <div class="nav_icon" onclick="toggleSidebar()">
+                        <i class="fa fa-bars" aria-hidden="true"></i>
+                    </div>
+                    <div class="navbar__left">
+                        <a href="#"></a>
+                        <a href="#"></a>
+                        <a class="active_link" href="#">Project Manager</a>
+                    </div>
+                    <div class="navbar__right">
+                        <a href="#">
+
+                        </a>
+                        <a href="#">
+
+                        </a>
+                        <a href="#">
+                            <img width="30" src="assets/avatar.svg" alt=""
+                                style="position:absolute; right:-366px; top:20px;" />
+
+                        </a>
+                    </div>
+                </nav>
+
+                <main>
+
+                    <form (ngSubmit)="userRegister()">
+                        <div class="form-group">
+                            <label for="exampleInputId">Project ID</label>
+                            <input type="number" [(ngModel)]="Projectdetails.pid" name="id" class="form-control" id="exampleInputId"
+                                aria-describedby="idHelp" placeholder="Enter Id">
+                            <!-- <small id="emailHelp" class="form-text text-muted"></small>-->
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputName">Project Name</label>
+                            <input type="text" [(ngModel)]="Projectdetails.pname" name="pname" class="form-control" id="exampleInputName"
+                                placeholder="Name">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputtext">Project Description</label>
+                            <input type="text" [(ngModel)]="Projectdetails.pdescription" name="pdescription" class="form-control" id="exampleInputtext"
+                                placeholder="text">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputSize">Team Size</label>
+                            <input type="number" [(ngModel)]="Projectdetails.teamsize" name="teamsize" class="form-control" id="exampleInputSize"
+                                placeholder="number">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputLimit">Team Limit</label>
+                            <input type="number" [(ngModel)]="Projectdetails.teamlimit" name="teamlimit" class="form-control" id="exampleInputLimit"
+                                placeholder="number">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputdate">Project Starting Date</label>
+                            <input type="date" [(ngModel)]="Projectdetails.startdate" name="startdate" class="form-control" id="exampleInputdate"
+                                placeholder="date">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputName">Proposed Date</label>
+                            <input type="date" [(ngModel)]="Projectdetails.proposeddate" name="proposeddate" class="form-control" id="exampleInputdate"
+                                placeholder="date">
+                        </div>
+
+                       
+                        <button type="submit" class="btn btn-primary">Add Project</button>
+                    </form>
+
+
+                </main>
+
+                <div id="sidebar">
+                    <div class="sidebar__title">
+                        <div class="sidebar__img">
+                            <img src="assets/log.JPG" alt="logo" />
+
+                        </div>
+                        <i onclick="closeSidebar()" class="fa fa-times" id="sidebarIcon" aria-hidden="true"></i>
+                    </div>
+
+                    <div class="sidebar__menu">
+                        <div class="sidebar__link active_menu_link">
+                            <i class="fa fa-home"></i>
+                            <a routerLink="/admin-dashboard">Dashboard</a>
+                        </div>
+                        <h2></h2>
+                        <div class="sidebar__link">
+                            <i class="fa fa-user" aria-hidden="true"></i>
+
+
+                            <a routerLink="/add-project">Add Project</a>
+                        </div>
+                        <div class="sidebar__link">
+                            <i class="fa fa-list" aria-hidden="true"></i>
+
+                            <a routerLink="/employee-list">Employee List</a>
+                        </div>
+                        <div class="sidebar__link">
+                            <i class="fa fa-calendar " aria-hidden="true"></i>
+                            <a routerLink="/manage-leave">Leave</a>
+                        </div>
+                        <div class="sidebar__link">
+                            <i class="fa fa-thumb-tack" aria-hidden="true"></i>
+
+                            <a routerLink="/">Assign Task</a>
+                        </div>
+                        <div class="sidebar__link">
+                            <i class="fa fa-thumb-tack" aria-hidden="true"></i>
+
+                            <a routerLink="/">Add Employee</a>
+                        </div>
+
+
+
+                        <div class="sidebar__logout">
+                            <i class="fa fa-power-off"></i>
+                            <a (click)="logout()">Log out</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+            <script src="script.js"></script>
+        </body>

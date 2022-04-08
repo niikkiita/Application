@@ -19,6 +19,12 @@ import { AvailableComponent } from './available/available.component';
 import { ProfileComponent } from './profile/profile.component';
 import { LeaveplanComponent } from './leaveplan/leaveplan.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
+import { AuthenticationGuard } from './authentication.guard';
+import { AddProjectComponent } from './add-project/add-project.component';
+import { EmployeeListComponent } from './employee-list/employee-list.component';
+import { ManageLeaveComponent } from './manage-leave/manage-leave.component';
+
 
 @NgModule({
   declarations: [
@@ -33,7 +39,11 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     AvailableComponent,
     ProfileComponent,
     LeaveplanComponent,
-    DashboardComponent
+    DashboardComponent,
+    AdminDashboardComponent,
+    AddProjectComponent,
+    EmployeeListComponent,
+    ManageLeaveComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +53,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     ReactiveFormsModule,
     FormsModule
   ],
-  providers: [],
+  providers: [AuthenticationGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

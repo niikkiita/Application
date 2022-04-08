@@ -14,8 +14,13 @@ export class LoginService {
   logInThe(credentials:any):Observable<any>
   {
   
-      return this.http.post<any>("http://localhost:8081/api/v3/login",credentials);
+      return this.http.post<any>("http://localhost:8080/api/v1/login",credentials);
     
+  }
+
+  registerProject(Projectdetails:any):Observable<Object>{
+    //console.log(user);
+    return this.http.post<any>("http://localhost:8080/api/v2/projects",Projectdetails);
   }
 
  
