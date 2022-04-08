@@ -79,7 +79,7 @@ body {
   align-items: center;
   justify-content: space-between;
   padding: 0 30px 0 30px;
-  border-bottom: 1px solid lightgray;
+
 
 }
 
@@ -127,7 +127,7 @@ body {
 }
 
 main {
-  background: #f3f4f6;
+
   grid-area: main;
   overflow-y: auto;
   width: 900px;
@@ -135,6 +135,7 @@ main {
 
 .main__container {
   padding: 20px 35px;
+  width: 900px;
 }
 
 .main__title {
@@ -368,8 +369,7 @@ main {
 }
 
 .active_menu_link:hover {
-  background-color: yellow;
-  color: #fbfbfb;
+   color: #fbfbfb;
 }
 
 .active_menu_link a {
