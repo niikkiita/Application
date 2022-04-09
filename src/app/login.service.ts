@@ -14,7 +14,7 @@ export class LoginService {
   logInThe(credentials:any):Observable<any>
   {
   
-      return this.http.post<any>("http://localhost:8080/api/v1/login",credentials);
+      return this.http.post<any>("http://localhost:8080/user/login",credentials);
     
   }
 
