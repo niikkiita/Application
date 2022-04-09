@@ -21,7 +21,7 @@ export class RegisterUserComponent implements OnInit {
     this.Register = FB.group({
       name: ['', Validators.required],
       userid: ['', [Validators.required, Validators.maxLength(5)]],
-      email_id: ['', [Validators.required, Validators.email]],
+      emailId: ['', [Validators.required, Validators.email]],
       phone: ['', [Validators.required, Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]],
       password: ['', Validators.required],
       cpassword: ['', Validators.required],
@@ -34,28 +34,9 @@ export class RegisterUserComponent implements OnInit {
   }
 
 
-  //   public Register=new FormGroup({
-  //     name: new FormControl('',Validators.required),
-  //     userid:new FormControl('',[Validators.required, Validators.maxLength(5)]),
-  //     email:new FormControl('',[Validators.required,Validators.email]),
-  //     phone:new FormControl('',[Validators.required,Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]),
-  //     password:new FormControl('',Validators.required),
-  //     cpassword:new FormControl('',Validators.required),
-  //     gender:new FormControl('',Validators.required),
-
-  //   },
-  //  {
-  //    Validators:ConfirmedValidator('password','cpassword')
-  //   } 
-  //   );
-  /*
-  {
-      validators:this.MustMatch('password','cpassword')
-    }
-  */
   get name() { return this.Register.get('name') }
   get userid() { return this.Register.get('userid') }
-  get email_id() { return this.Register.get('email_id') }
+  get emailId() { return this.Register.get('emailId') }
   get phone() { return this.Register.get('phone') }
   get password() { return this.Register.get('password') }
   get cpassword() { return this.Register.get('password') }

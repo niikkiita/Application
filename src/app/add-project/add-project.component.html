@@ -37,38 +37,38 @@
         <form (ngSubmit)="userRegister()">
             <div class="form-group">
                 <label for="exampleInputId">Project ID</label>
-                <input type="number" [(ngModel)]="Projectdetails.pId" name="id" class="form-control" id="exampleInputId"
+                <input type="number" [(ngModel)]="project.pId" name="id" class="form-control" id="exampleInputId"
                     aria-describedby="idHelp" placeholder="Enter Id">
                 <!-- <small id="emailHelp" class="form-text text-muted"></small>-->
             </div>
             <div class="form-group">
                 <label for="exampleInputName">Project Name</label>
-                <input type="text" [(ngModel)]="Projectdetails.pName" name="pname" class="form-control" id="exampleInputName"
+                <input type="text" [(ngModel)]="project.pName" name="pname" class="form-control" id="exampleInputName"
                     placeholder="Name">
             </div>
             <div class="form-group">
                 <label for="exampleInputtext">Project Description</label>
-                <input type="text" [(ngModel)]="Projectdetails.pDescription" name="pdescription" class="form-control" id="exampleInputtext"
+                <input type="text" [(ngModel)]="project.pDescription" name="pdescription" class="form-control" id="exampleInputtext"
                     placeholder="text">
             </div>
             <div class="form-group">
                 <label for="exampleInputSize">Team Size</label>
-                <input type="number" [(ngModel)]="Projectdetails.teamSize" name="teamsize" class="form-control" id="exampleInputSize"
+                <input type="number" [(ngModel)]="project.teamSize" name="teamsize" class="form-control" id="exampleInputSize"
                     placeholder="number">
             </div>
             <div class="form-group">
                 <label for="exampleInputLimit">Team Limit</label>
-                <input type="number" [(ngModel)]="Projectdetails.teamLimit" name="teamlimit" class="form-control" id="exampleInputLimit"
+                <input type="number" [(ngModel)]="project.teamLimit" name="teamlimit" class="form-control" id="exampleInputLimit"
                     placeholder="number">
             </div>
             <div class="form-group">
                 <label for="exampleInputdate">Project Starting Date</label>
-                <input type="date" [(ngModel)]="Projectdetails.startDate" name="startdate" class="form-control" id="exampleInputdate"
+                <input type="date" [(ngModel)]="project.startDate" name="startdate" class="form-control" id="exampleInputdate"
                     placeholder="date">
             </div>
             <div class="form-group">
                 <label for="exampleInputName">Proposed Date</label>
-                <input type="date" [(ngModel)]="Projectdetails.proposedDate" name="proposeddate" class="form-control" id="exampleInputdate"
+                <input type="date" [(ngModel)]="project.proposedDate" name="proposeddate" class="form-control" id="exampleInputdate"
                     placeholder="date">
             </div>
     

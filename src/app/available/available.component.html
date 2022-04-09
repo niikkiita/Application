@@ -57,16 +57,16 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let employees of employees" >
+            <tr *ngFor="let project of projects" >
             <!--<td>{{employee.employeeId}}</td>-->
               
-              <td>{{employees.projectID}}</td>
-              <td>{{employees.projectName}}</td>
-              <td>{{employees.projectDescription}}</td>
-              <td>{{employees.startDate}}</td>
-              <td>{{employees.praposeDate}}</td>
-              <td>{{employees.teamSize}}</td>
-              <td>{{employees.teamLimit}}</td>
+              <td>{{project.pId}}</td>
+              <td>{{project.pName}}</td>
+              <td>{{project.pDescription}}</td>
+              <td>{{project.startDate}}</td>
+              <td>{{project.proposedDate}}</td>
+              <td>{{project.teamSize}}</td>
+              <td>{{project.teamLimit}}</td>
                <td>
                  <button>apply</button>
                 <!-- <button type="button" class="btn btn-primary" (click)=" goToEditEmployee(employee.employeeId)">Edit</button>&nbsp;

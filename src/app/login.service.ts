@@ -5,22 +5,9 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class LoginService {
-
   constructor(private http: HttpClient) {}
- 
- 
 
-  logInThe(credentials:any):Observable<any>
-  {
-  
-      return this.http.post<any>("http://localhost:8080/user/login",credentials);
-    
+  logInThe(credentials: any): Observable<any> {
+    return this.http.post<any>('http://localhost:8080/user/login', credentials);
   }
-
-  registerProject(Projectdetails:any):Observable<Object>{
-    //console.log(user);
-    return this.http.post<any>("http://localhost:8080/api/v2/projects",Projectdetails);
-  }
-
- 
 }

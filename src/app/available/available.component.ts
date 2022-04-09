@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Employee } from '../models/employees';
-import { UserService } from '../user.service';
+import { Project } from '../models/project';
+import { ProjectsService } from '../projects.service';
 
 @Component({
   selector: 'app-available',
@@ -11,17 +11,17 @@ export class AvailableComponent implements OnInit {
 
   
 
-  constructor( private userService:UserService) { }
-  employees: Array<Employee> = new Array();
+  constructor( private projectsService:ProjectsService) { }
+  projects: Array<Project> = new Array();
   ngOnInit(): void {
     this.reloadData();
   }
 
   reloadData(){
-    this.userService.getProjectList().subscribe(
+    this.projectsService.getProjectList().subscribe(
       data=>{
         console.log(data);
-        this.employees=data;
+        this.projects=data;
       },
     error=>console.log("exception occure")
     )
