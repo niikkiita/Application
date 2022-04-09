@@ -12,13 +12,13 @@ export class AddProjectComponent implements OnInit {
   constructor(private authservice:AuthService, private loginservice:LoginService) { }
 
   Projectdetails={
-    pid:"" ,
-    pname:"",
-    pdescription:"",
-	  teamsize:"",
-	  teamlimit:"",
-    startdate:"",
-    proposeddate:""
+    pId:"" ,
+    pName:"",
+    pDescription:"",
+	  teamSize:"",
+	  teamLimit:"",
+    startDate:"",
+    proposedDate:""
 
   }
   logout()
