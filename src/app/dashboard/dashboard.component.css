@@ -129,7 +129,8 @@ main {
   background: #ffffff;
   grid-area: main;
   overflow-y: auto;
-  width: 800px;
+
+  width: 900px;
 }
 
 .main__container {
@@ -171,7 +172,8 @@ main {
   flex-direction: column;
   justify-content: space-around;
   height: 142px;
-  width:  205;
+
+  width:205px;
   padding: 25px;
   border-radius: 5px;
   background: #ffffff;

@@ -129,7 +129,7 @@ main {
   background: #f3f4f6;
   grid-area: main;
   overflow-y: auto;
-  width: 1555px;
+  width: 900px;
 }
 
 .main__container {

@@ -37,10 +37,57 @@
       <div class="main__container">
 
 
-     <p>lorem ipsum dolor sit amet, consenter adit</p>
-     <p>lorem ipsum dolor sit amet, consent</p>
-     <p>lorem ipsum dolor sit amet, consent</p>
 
+
+
+
+        <table  border="1" class="table table-striped  ">
+          <thead>
+            <tr>
+              <!--<th>Employee ID</th> -->
+             
+              <th>project id</th>
+              <th>project name</th>
+              <th>project description</th>
+               <th>startdate</th>
+               <th>prapose date</th>
+               <th>team Size</th>
+               <th>team limit</th>
+               <th>actioN</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let employees of employees" >
+            <!--<td>{{employee.employeeId}}</td>-->
+              
+              <td>{{employees.projectID}}</td>
+              <td>{{employees.projectName}}</td>
+              <td>{{employees.projectDescription}}</td>
+              <td>{{employees.startDate}}</td>
+              <td>{{employees.praposeDate}}</td>
+              <td>{{employees.teamSize}}</td>
+              <td>{{employees.teamLimit}}</td>
+               <td>
+                 <button>apply</button>
+                <!-- <button type="button" class="btn btn-primary" (click)=" goToEditEmployee(employee.employeeId)">Edit</button>&nbsp;
+                <button type="button" class="btn btn-info" (click)="goToViewEmployee(employee.employeeId)">View</button>&nbsp;
+              -->
+              </td> 
+            </tr>
+            
+            
+          </tbody>
+        </table>
+
+
+
+
+
+
+
+
+
+     
       </div>
     </main>
 
