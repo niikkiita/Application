@@ -26,12 +26,12 @@
       <br>
       <div class="mb-3">
         <label for="exampleFormControlInput1" class="form-label">Email Id</label>
-        <input type="email" class="form-control" formControlName="email" id="email" name="email"
-          [(ngModel)]="user.email" ngModel [email]="true">
-        <div *ngIf="this.Register.controls['email'].invalid && this.Register.controls['email'].touched">
-          <small *ngIf="this.Register.controls['email'].errors?.['required']" class="text-danger"> Email ID is
+        <input type="email" class="form-control" formControlName="email_id" id="email_id" name="email_id"
+          [(ngModel)]="user.email_id" ngModel [email]="true">
+        <div *ngIf="this.Register.controls['email_id'].invalid && this.Register.controls['email_id'].touched">
+          <small *ngIf="this.Register.controls['email_id'].errors?.['required']" class="text-danger"> Email ID is
             required</small>
-            <small *ngIf="this.Register.controls['email'].errors?.['email']" class="text-danger"> Email ID is
+            <small *ngIf="this.Register.controls['email_id'].errors?.['email_id']" class="text-danger"> Email ID is
               invalid</small>
         </div>
       </div>

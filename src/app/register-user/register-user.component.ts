@@ -21,7 +21,7 @@ export class RegisterUserComponent implements OnInit {
     this.Register = FB.group({
       name: ['', Validators.required],
       userid: ['', [Validators.required, Validators.maxLength(5)]],
-      email: ['', [Validators.required, Validators.email]],
+      email_id: ['', [Validators.required, Validators.email]],
       phone: ['', [Validators.required, Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]],
       password: ['', Validators.required],
       cpassword: ['', Validators.required],
@@ -55,7 +55,7 @@ export class RegisterUserComponent implements OnInit {
   */
   get name() { return this.Register.get('name') }
   get userid() { return this.Register.get('userid') }
-  get email() { return this.Register.get('email') }
+  get email_id() { return this.Register.get('email_id') }
   get phone() { return this.Register.get('phone') }
   get password() { return this.Register.get('password') }
   get cpassword() { return this.Register.get('password') }

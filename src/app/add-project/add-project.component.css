@@ -133,6 +133,7 @@ main {
 }
 
 .main__container {
+    margin-left: 30px;
   padding: 20px 35px;
   width: 900px;
 }

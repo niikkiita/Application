@@ -9,7 +9,7 @@ import { User } from './user';
 })
 export class RegisterService {
 
-  baseurl="http://localhost:8080/api/v1/register";
+  baseurl="http://localhost:8080/user/register";
   constructor(private httpClient:HttpClient) {   {
     
   }}

@@ -11,6 +11,6 @@ export class UserService {
   constructor( private http:HttpClient) { }
 
   getProjectList(): Observable<any> {
-    return this.http.get<any>('http://localhost:8081/api/v3/project/projectsList');
+    return this.http.get<any>('http://localhost:8080/api/v2/project/projectsList');
   }
 }
