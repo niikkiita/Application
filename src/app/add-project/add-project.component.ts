@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth.service';
-import { LoginService } from '../login.service';
+import { Project } from '../models/project';
+
+import { ProjectsService } from '../projects.service';
 
 @Component({
   selector: 'app-add-project',
@@ -9,18 +11,12 @@ import { LoginService } from '../login.service';
 })
 export class AddProjectComponent implements OnInit {
 
-  constructor(private authservice:AuthService, private loginservice:LoginService) { }
+  constructor(private authservice:AuthService, private projectservice:ProjectsService) { }
 
-  Projectdetails={
-    pId:"" ,
-    pName:"",
-    pDescription:"",
-	  teamSize:"",
-	  teamLimit:"",
-    startDate:"",
-    proposedDate:""
 
-  }
+ project!:Project;
+
+
   logout()
   {
     this.authservice.logoutUser();
@@ -31,7 +27,7 @@ export class AddProjectComponent implements OnInit {
 
 
   userRegister() {
-    this.loginservice.registerProject(this.Projectdetails).subscribe(
+    this.projectservice.registerProject(this.project).subscribe(
       response => {
         alert("Details Added")
 
