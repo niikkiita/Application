@@ -18,7 +18,7 @@ export class ManageLeaveComponent implements OnInit {
   leaveList: Leaves[] = [];
 
   Acceptleave: AcceptLeave = new AcceptLeave();
-  leaveObj1: any;
+  
 
   constructor(private leaveservice: LeaveService, private fb: FormBuilder) {
 
@@ -28,13 +28,13 @@ export class ManageLeaveComponent implements OnInit {
     this.getData();
 
     this.leaveDetail = this.fb.group({
-      userId: [''],
+      userid: [''],
       leaveId!: [''],
       projectName: [''],
-      description: [''],
-      username: [''],
-      leaveDateFrom: [''],
-      leaveDateTo: ['']
+      reason: [''],
+      userName: [''],
+      startDate: [''],
+      endData: ['']
     });
   }
   getData() {
@@ -49,9 +49,6 @@ export class ManageLeaveComponent implements OnInit {
       data => { this.Acceptleave = data }, error => alert("cant post")
     )
   }
-  editdata(leave: Leaves) {
-    this.leaveDetail.controls['description'].setValue(leave.description)
-  }
  
   updateData() {
     this.leaveservice.updateData(this.leaveObj.leaveId,this.leaveObj).subscribe({
@@ -62,10 +59,9 @@ export class ManageLeaveComponent implements OnInit {
       error:(e)=>alert("not saved")
     })
   }
-  
+  approveLeave()
+  {
+
+  }
+
 }
-
-
-
-
-

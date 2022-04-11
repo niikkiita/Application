@@ -53,85 +53,19 @@
                     </thead>
                     <tbody>
                         <tr *ngFor="let leave of leaveList">
-                            <td>{{leave.userId}}</td>
+                            <td>{{leave.userid}}</td>
                             <td>{{leave.leaveId}}</td>
-                            <td>{{leave.username}}</td>
-                            <td>{{leave.leaveDateFrom}}</td>
-                            <td>{{leave.leaveDateTo}}</td>
+                            <td>{{leave.userName}}</td>
+                            <td>{{leave.startDate}}</td>
+                            <td>{{leave.endDate}}</td>
                             <td>{{leave.projectName}}</td>
-                            <td>{{leave.description}}</td>
-                            <!-- <td><input type="text" [(ngModel)]="leave.description"></td> -->
-
-                            <!-- <form (ngSubmit)="postdata()">
-                                    <div class="form-group">
-                                        <input type="text" [(ngModel)]="Acceptleave.AcceptLeave" class="form-control">
-
-                                        <button type="button" class="btn btn-success">Accept</button> -->
-                            <!-- editdata(leave) -->
-                            <!-- <button type="button" class="btn btn-outline-primary me-2" data-toggle="modal"
-                                        data-target="#exampleModal" (click)="showModel=true">Decline</button> -->
-
+                            <td>{{leave.reason}}</td>
+ 
                         </tr>
                     </tbody>
                 </table>
 
-                <!-- <div class="modal fade" id="exampleModal" [ngClass]="{'show':sho
-                    wModel}"  tabindex="-1" aria-labelledby="exampleModalLabel"
-                        aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                        aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-
-                                    <form [formGroup]="leaveDetail">
-                                        <div class="mb-3">
-                                            <label for="exampleInputEmail1" class="form-label">Reason </label>
-                                            <input type="text" formControlName="description" class="form-control"
-                                                id="description" aria-describedby="emailHelp">
-                                        </div>
-
-
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary"
-                                                data-bs-dismiss="modal">Close</button>
-                                            <button type="button" class="btn btn-outline-success" (click)="updateData()"
-                                                data-bs-dismiss="modal">Update </button>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div> -->
-
                 <br><br>
-                <!--                     
-                    <label>Leave ID &nbsp;&nbsp; </label>
-                    <select class="form-select"  [(ngModel)]="leaveObj1" aria-label="Default select example" name="leaveObj1">
-                        <option *ngFor="let leave of leaveList" [value]="leave.leaveId" >  {{leave.leaveId}}  </option>
-                    </select>
-
-                    
-                    <button type="submit"  (click)="updateData()" class="btn btn-primary">Add Project</button> -->
-
-
-                <!-- <form [formGroup]="product">
-                    <div class="form-group">
-                    <select class="form-control"  [(ngModel)]='leaveObj.leaveId' formControlName="product" #product>
-                        <option *ngFor="let leave of leaveList" [ngValue]='product'>{{leave.leaveId}}</option>
-                    </select>
-                </div>
-                    <div class="form-control" formControlName="product">
-                        <label for="exampleInputtext">Reason</label>
-                        <input type="text" [(ngModel)]="leaveObj.description" name="id" class="form-control"
-                            id="exampleInputId" aria-describedby="idHelp" placeholder="Enter Reason">
-                    </div>
-
-                    <button (click)="updateData(leaveObj.leaveId)" class="btn btn-primary">Add</button>
-                </form> -->
 
                 
  
@@ -143,18 +77,10 @@
                                 aria-describedby="idHelp" placeholder="Leave Id">
                           
                         </div>
-                        <!-- <div class="form-group">
-                            <label for="leave">Choose Leave Id</label>
-                            <select class="form-select" name="leave" id="leave" [(ngModel)]="leaveObj.leaveId" formControlName="leave">
-                                <option *ngFor="let leave of leaveList" >
-                                    {{leave.leaveId}}
-                                </option>
-                            </select>
-                        </div> -->
                         <br>
                         <div class="form-group">
                             <label for="exampleInputName">Reason</label>
-                            <input type="text" [(ngModel)]="leaveObj.description" name="description" class="form-control" id="description"
+                            <input type="text" [(ngModel)]="leaveObj.reason" name="description" class="form-control" id="description"
                                 placeholder="Name">
                         </div><br>
                         <button type="submit" class="btn btn-danger" (click)="updateData()">Decline</button> &nbsp; 

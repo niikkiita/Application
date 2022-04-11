@@ -37,9 +37,61 @@
       <div class="main__container">
 
 
-     <p>lorem ipsum dolor sit amet, consenter adit</p>
-     <p>lorem ipsum dolor sit amet, consent</p>
-     <p>lorem ipsum dolor sit amet, consent</p>
+
+
+
+
+        <form>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="inputEmail4">StartDate</label>
+              <input type="date" class="form-control" [(ngModel)]="leave.startDate" name="sdate" id="inputEmail4"  placeholder="Enter date from,you want leave">
+            </div>
+            <div class="form-group col-md-6">
+              <label for="inputEmail4">EndDate</label>
+              <input type="date" class="form-control" id="inputEmail4" [(ngModel)]="leave.endDate"   name="eda" placeholder="Enter date till,you want leave">
+            </div>
+            <br>
+            <br>
+            <br>
+            <div class="form-group col-md-6">
+              <label for="inputEmail4">Reason</label>
+              <textarea  class="form-control" id="inputEmail4" name="reson"  [(ngModel)]="leave.reason" placeholder="Why you want leaves" ></textarea>
+            </div>
+          </div>
+          <br>
+          <button type="submit" class="button button1" (click)="addLeave()">Sign in</button>
+        </form>
+        <br>
+{{email}}
+
+        <table  border="1" class="table table-striped " >
+          <thead class="thead-dark">
+            <tr>
+              <!--<th>Employee ID</th> -->
+             
+              <th>leave id</th>
+               <th>startdate</th>
+               <th>end date</th>
+               <th>description</th>
+               <th>status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let leave of leaves ">
+              <td>{{leave.leaveId}}</td>
+              <td>{{leave.startDate}}</td>
+              <td>{{leave.endDate}}</td>
+              <td>{{leave.reason}}</td>
+              <td>{{leave.status}}</td>
+              
+            </tr>
+          </tbody>
+        </table>
+
+        {{leave | json}}
+
+     
 
       </div>
     </main>
