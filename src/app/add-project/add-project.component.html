@@ -90,35 +90,39 @@
         <div class="sidebar__menu">
           <div class="sidebar__link active_menu_link">
             <i class="fa fa-home"></i>
-            <a href="#">Dashboard</a>
+            <a routerLink="/admin-dashboard">Dashboard</a>
           </div>
           <h2></h2>
           <div class="sidebar__link">
             <i class="fa fa-user" aria-hidden="true"></i>
   
   
-            <a routerLink="/profile">My Profile</a>
+            <a routerLink="/add-project">Add Project</a>
           </div>
           <div class="sidebar__link">
             <i class="fa fa-list" aria-hidden="true"></i>
   
-            <a routerLink="/available">Available Project List</a>
+            <a routerLink="/employee-list" >Employee List</a>
           </div>
           <div class="sidebar__link">
             <i class="fa fa-calendar " aria-hidden="true"></i>
-            <a routerLink="/leave">Leave Plan</a>
+            <a routerLink="/manage-leave">Leave</a>
+          </div>
+          <div class="sidebar__link">
+            <i class="fa fa-calendar " aria-hidden="true"></i>
+            <a routerLink="/assign-task">Assign Task</a>
           </div>
           <div class="sidebar__link">
             <i class="fa fa-thumb-tack" aria-hidden="true"></i>
   
-            <a routerLink="/task">My Tasks</a>
+            <a routerLink="/add-employee">Add  Employee</a>
           </div>
   
   
   
           <div class="sidebar__logout">
             <i class="fa fa-power-off"></i>
-            <a href="#">Log out</a>
+            <a routerLink="/home">Log out</a>
           </div>
         </div>
       </div>

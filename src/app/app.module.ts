@@ -24,6 +24,8 @@ import { AuthenticationGuard } from './authentication.guard';
 import { AddProjectComponent } from './add-project/add-project.component';
 import { EmployeeListComponent } from './employee-list/employee-list.component';
 import { ManageLeaveComponent } from './manage-leave/manage-leave.component';
+import { AssignTaskComponent } from './assign-task/assign-task.component';
+import { AddEmployeeComponent } from './add-employee/add-employee.component';
 
 
 @NgModule({
@@ -43,7 +45,9 @@ import { ManageLeaveComponent } from './manage-leave/manage-leave.component';
     AdminDashboardComponent,
     AddProjectComponent,
     EmployeeListComponent,
-    ManageLeaveComponent
+    ManageLeaveComponent,
+    AssignTaskComponent,
+    AddEmployeeComponent
   ],
   imports: [
     BrowserModule,

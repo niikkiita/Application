@@ -1,9 +1,10 @@
 export class Employee {
-    projectID!:number;
-    projectName!:string;
-    projectDescription!:string;
-    startDate!:String;
-    praposeDate!:String;
+    pId!:number;
+    pName!:string;
+    pDescription!:string;
     teamSize!:number;
     teamLimit!:number;
+    startDate!:Date;
+    praposeDate!:Date;
 }
+

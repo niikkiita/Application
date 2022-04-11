@@ -1,8 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AddEmployeeComponent } from './add-employee/add-employee.component';
 import { AddProjectComponent } from './add-project/add-project.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { AppComponent } from './app.component';
+import { AssignTaskComponent } from './assign-task/assign-task.component';
 import { AvailableComponent } from './available/available.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { EmployeeListComponent } from './employee-list/employee-list.component';
@@ -28,7 +30,10 @@ const routes: Routes = [
   {path:'admin-dashboard',component:AdminDashboardComponent},
   {path:'add-project', component:AddProjectComponent},
   {path:'employee-list',component:EmployeeListComponent},
-  {path:'manage-leave',component:ManageLeaveComponent}
+  {path:'manage-leave',component:ManageLeaveComponent},
+  {path:'assign-task',component:AssignTaskComponent},
+  {path:'employee-list',component:EmployeeListComponent},
+  {path:'add-employee',component:AddEmployeeComponent}
 ];
 
 @NgModule({

@@ -11,27 +11,16 @@ import { ProjectsService } from '../projects.service';
 })
 export class AddProjectComponent implements OnInit {
 
+  project: Project=new Project();
   constructor(private authservice:AuthService, private projectservice:ProjectsService) { }
-
-
- project!:Project;
-
-
-  logout()
-  {
-    this.authservice.logoutUser();
-  }
   
   ngOnInit(): void {
   }
-
 
   userRegister() {
     this.projectservice.registerProject(this.project).subscribe(
       response => {
         alert("Details Added")
-
-        //this.router.navigate(['./dashboard']);
       },
       error => {
         alert("not correct deatils")

@@ -1,4 +1,3 @@
-
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -18,7 +17,7 @@
         <div class="navbar__left">
           <a href="#"></a>
           <a href="#"></a>
-          <a class="active_link" href="#">Project Manager</a>
+          <a class="active_link" href="#">User</a>
         </div>
         <div class="navbar__right">
           <a href="#">
@@ -38,49 +37,9 @@
         <div class="main__container">
   
   
-          <div class="main__title">
-            <img src="assets/hello.svg" alt="" />
-            <div class="main__greeting">
-              <h1>Hello Manager</h1>
-              <p>Welcome to our dashboard</p>
-            </div>
-          </div>
-  
-  
-          <div class="main__cards">
-            <div class="card">
-              <i
-                class="fa fa-user-o fa-2x text-lightblue"
-                aria-hidden="true"
-              ></i>
-              <div class="card_inner">
-                <p class="text-primary-p">Total no of available project</p>
-                <span class="font-bold text-title">100</span>
-              </div>
-            </div>
-  
-            <div class="card">
-              <i class="fa fa-calendar fa-2x text-red" aria-hidden="true"></i>
-              <div class="card_inner">
-                <p class="text-primary-p">Flexible Working System</p>
-                <span class="font-bold text-title"></span>
-              </div>
-            </div>
-  
-  
-  
-            <div class="card">
-              <i
-                class="  fa fa-thumb-tack fa-2x text-green"
-                aria-hidden="true"
-              ></i>
-              <div class="card_inner">
-                <p class="text-primary-p">Big Tasks Performed Easily</p>
-                <span class="font-bold text-title"></span>
-              </div>
-            </div>
-          </div>
-  
+       <p>lorem ipsum dolor sit amet, consenter adit</p>
+       <p>lorem ipsum dolor sit amet, consent</p>
+       <p>lorem ipsum dolor sit amet, consent</p>
   
         </div>
       </main>
@@ -102,7 +61,7 @@
         <div class="sidebar__menu">
           <div class="sidebar__link active_menu_link">
             <i class="fa fa-home"></i>
-            <a routerLink="/admin-dashboard">Dashboard</a>
+            <a href="#">Dashboard</a>
           </div>
           <h2></h2>
           <div class="sidebar__link">
@@ -125,17 +84,14 @@
   
             <a routerLink="/assign-task">Assign Task</a>
           </div>
+  
           <div class="sidebar__link">
             <i class="fa fa-thumb-tack" aria-hidden="true"></i>
-  
-            <a routerLink="/add-employee">Add  Employee</a>
-          </div>
-  
-  
-  
+          <a routerLink="/add-employee">Add  Employee</a>
+        </div>
           <div class="sidebar__logout">
             <i class="fa fa-power-off"></i>
-         <a (click)="logout()">Log out</a>
+            <a routerLink="/home">Log out</a>
           </div>
         </div>
       </div>
@@ -143,5 +99,10 @@
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
     <script src="script.js"></script>
   </body>
+  
+  
+  
+  
+  
   
   

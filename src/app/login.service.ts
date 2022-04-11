@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class LoginService {
+  url = 'http://localhost/8080';
 
   constructor(private http: HttpClient) {}
  
@@ -16,11 +17,5 @@ export class LoginService {
       return this.http.post<any>("http://localhost:8080/user/login",credentials);
     
   }
-
-  registerProject(Projectdetails:any):Observable<Object>{
-    //console.log(user);
-    return this.http.post<any>("http://localhost:8080/api/v2/projects",Projectdetails);
-  }
-
  
 }
