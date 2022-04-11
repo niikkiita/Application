@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root',
 })
@@ -9,5 +9,14 @@ export class LoginService {
 
   logInThe(credentials: any): Observable<any> {
     return this.http.post<any>('http://localhost:8080/user/login', credentials);
+  }
+
+
+// To fetch the data from profile for leave
+ private approvalStageMessage = new BehaviorSubject('mayu');
+ currentApprovalStageMessage = this.approvalStageMessage.asObservable();
+
+ updateApprovalMessage(email: string) {
+  this.approvalStageMessage.next(email)
   }
 }

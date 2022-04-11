@@ -16,7 +16,7 @@ export class LoginComponent implements OnInit {
   constructor(private loginService: LoginService, private router: Router) { }
 
   onSubmit() {
-          
+    this.loginService.updateApprovalMessage(this.credentials.emailId)
     if ((this.credentials.emailId != "" && this.credentials.password != "") && (this.credentials.emailId != null && this.credentials.password != null)) {
       this.loginService.logInThe(this.credentials).subscribe(
         response => {
@@ -33,8 +33,12 @@ export class LoginComponent implements OnInit {
       console.log("Empty or null values")
     }
   }
+
+  
+ 
   ngOnInit(): void {
-    // localStorage.setItem('sessionUser',this.credentials);
+    // for getting data off profile for leave
+   
   }
 
 }

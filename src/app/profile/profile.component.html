@@ -32,13 +32,50 @@
     </nav>
 
     <main>
-      <div class="main__container">
-
-
-        <p>lorem ipsum dolor sit amet, consenter adit</p>
-        <p>lorem ipsum dolor sit amet, consent</p>
-        <p>lorem ipsum dolor sit amet, consent</p>
-
+      <div class="row">
+        
+      </div>
+      <div class="row">
+          <form >
+              <div class="form-row " style="padding: 100px;width: 63%;" >
+                
+                <label for="UserId"><b>User Id</b></label>
+                      <input type="text"  class="form-control " id="inlineFormInput"  placeholder="UserId"
+                         formControlName="uid" [(ngModel)]="profile.userid">
+            
+                  <br/>  <br/>
+              
+                  <label for="skillset"><b>SkillSet</b></label>
+                      <input type="text" class="form-control" id="inlineFormInput" placeholder="skillset"
+                          formControlName="skillset"[(ngModel)]="profile.skillSet" >
+             
+                          <br/>  <br/>
+                         
+                          <label for="experience"><b>Experience</b></label>
+                      <input type="text" class="form-control" id="inlineFormInput"  placeholder="experience"
+                          formControlName="experience"[(ngModel)]="profile.experience">
+               
+                          <br/>  <br/>
+  
+                          <label for="currentproject"><b>Current Project</b></label>
+                      <input type="text" class="form-control" id="inlineFormInput"  placeholder="currentproject"
+                          formControlName="currentproject"[(ngModel)]="profile.currentProject">
+              
+                          <br/>  <br/>
+                          <label for="currentprojectid"><b>Current Project Id</b></label>
+                          <input type="text" class="form-control" id="inlineFormInput"  placeholder="currprojid"
+                              formControlName="currprojid"[(ngModel)]="profile.currentProjectId">
+                  
+                              <br/>  <br/>
+          
+                              <label for="Releasedate"><b>Releasedate</b></label>
+                      <input type="text" class="form-control" id="inlineFormInput" placeholder="releasedate"
+                          formControlName="releasedate"[(ngModel)]="profile.releaseDate">
+                          <br/>  <br/>
+                      <button type="submit" class="button1" >Save</button>
+               
+              </div>
+          </form>
       </div>
     </main>
 

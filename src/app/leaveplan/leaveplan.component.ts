@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { LoginService } from '../login.service';
+import { Leaves } from '../models/leaves';
+import { Profile } from '../models/profile';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-leaveplan',
@@ -6,10 +10,54 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./leaveplan.component.css']
 })
 export class LeaveplanComponent implements OnInit {
+leave: Leaves = new Leaves();
+leaves!:Leaves[];
+  profile: Profile = new Profile();
+  email!:string;
+  startdate!:Date;
+  endDate!:Date;
+  reason!:string;
 
-  constructor() { }
+  constructor( private userService:UserService, private loginService:LoginService) { }
 
   ngOnInit(): void {
+    
+    this.loginService.currentApprovalStageMessage.subscribe(msg => this.email = msg)
+    this.relloadData();
+    this.getLeavesData();
   }
+  relloadData()
+  {
+
+    this.userService.getProfileData(this.email).subscribe
+    (
+      data => {
+        this.leave.userid=data.userid;
+        this.leave.projectName=data.currentProject;
+        this.leave.userName=data.userName;
+        console.log(data);
+      }, error => alert(error));
+  }
+
+
+  addLeave() {
+    
+    this.leave.status="unapproved";
+    this.userService.applyLeave(this.leave).subscribe(
+      data => { 
+      alert("Successsfully user is registered")
+    }, error => alert("not Register"));
+  }
+
+getLeavesData()
+{
+  this.userService.getLeaves().subscribe(
+  data => {
+    this.leaves=data;
+  },
+  error => {
+  }
+  )
+}
 
 }
