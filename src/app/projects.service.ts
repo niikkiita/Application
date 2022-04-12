@@ -13,7 +13,7 @@ export class ProjectsService {
   
   registerProject(project:Project):Observable<Object>{
     //console.log(user);
-    return this.http.post<any>("http://localhost:8080/projects/addproject",project);
+    return this.http.post<any>("http://localhost:8080/projects/projects",project);
   }
   
 

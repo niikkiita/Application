@@ -44,11 +44,7 @@ export class ManageLeaveComponent implements OnInit {
   }
 
 
-  postdata() {
-    this.leaveservice.postLeave(this.Acceptleave).subscribe(
-      data => { this.Acceptleave = data }, error => alert("cant post")
-    )
-  }
+  
 
   updateData() {
     this.leaveObj.status = "Declined";

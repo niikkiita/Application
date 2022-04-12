@@ -13,11 +13,11 @@ export class LeaveService {
 
   
   getLeaveList(): Observable<any> {
-    return this.http.get<any>('http://localhost:8080/leave/details');
+    return this.http.get<any>('http://localhost:8080/leave/getleaves');
   }
-  postLeave(AcceptLeave:any):Observable<any>{
-    return this.http.post<any>('http://localhost:8080/status/accept',AcceptLeave)
-  }
+  // postLeave(AcceptLeave:any):Observable<any>{
+  //   return this.http.post<any>('http://localhost:8080/leave/addleave',AcceptLeave)
+  // }
   updateData(leaveId:number,description:Leaves):Observable<any>{
     console.log(description);
     return this.http.put<any>('http://localhost:8080/leave/update/'+leaveId,description);
