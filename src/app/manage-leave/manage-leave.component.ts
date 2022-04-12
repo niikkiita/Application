@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup,FormControl } from '@angular/forms';
+import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { LeaveService } from '../leave.service';
 import { AcceptLeave } from '../models/accept-leave';
 import { Leaves } from '../models/leaves';
@@ -18,7 +18,7 @@ export class ManageLeaveComponent implements OnInit {
   leaveList: Leaves[] = [];
 
   Acceptleave: AcceptLeave = new AcceptLeave();
-  
+
 
   constructor(private leaveservice: LeaveService, private fb: FormBuilder) {
 
@@ -49,19 +49,27 @@ export class ManageLeaveComponent implements OnInit {
       data => { this.Acceptleave = data }, error => alert("cant post")
     )
   }
- 
-  updateData() {
-    this.leaveservice.updateData(this.leaveObj.leaveId,this.leaveObj).subscribe({
-      next:(res)=>{
 
+  updateData() {
+    this.leaveObj.status = "Declined";
+    this.leaveservice.updateData(this.leaveObj.leaveId, this.leaveObj).subscribe({
+      next: (res) => {
+        alert("Done")
         console.log(res)
       },
-      error:(e)=>alert("not saved")
+      error: (e) => alert("not saved")
     })
   }
-  approveLeave()
-  {
+  onApproved() {
+    this.leaveObj.status = "Approved";
 
+    this.leaveservice.updateStatus(this.leaveObj.leaveId, this.leaveObj).subscribe({
+      next: (res) => {
+        //res.leaveObj.reason=this.leaveObj.reason;
+        alert("status has been sent successfully")
+      },
+      error: (e) => alert("status not saved ")
+
+    })
   }
-
 }

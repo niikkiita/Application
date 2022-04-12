@@ -47,6 +47,7 @@
                             <th>Leave till</th>
                             <th>Project name</th>
                             <th>Reason</th>
+                            <th>Status</th>
 
 
                         </tr>
@@ -60,7 +61,7 @@
                             <td>{{leave.endDate}}</td>
                             <td>{{leave.projectName}}</td>
                             <td>{{leave.reason}}</td>
- 
+                            <td>{{leave.status}}</td>
                         </tr>
                     </tbody>
                 </table>
@@ -84,8 +85,9 @@
                                 placeholder="Name">
                         </div><br>
                         <button type="submit" class="btn btn-danger" (click)="updateData()">Decline</button> &nbsp; 
-                        <button type="submit" class="btn btn-success" >Approve</button>
+                        <button type="submit" (click)="onApproved()"  class="btn btn-success" >Approve</button>
                     </form>
+                    
 
                 </div> 
                 

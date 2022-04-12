@@ -22,4 +22,7 @@ export class LeaveService {
     console.log(description);
     return this.http.put<any>('http://localhost:8080/leave/update/'+leaveId,description);
   }
+  updateStatus(leaveId:number,reason:Leaves):Observable<any>{
+    return this.http.put<any>('http://localhost:8080/leave/updatestatus/'+leaveId,reason);
+  }
 }
