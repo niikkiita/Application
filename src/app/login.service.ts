@@ -18,12 +18,14 @@ export class LoginService {
     
   }
 
-
 // To fetch the data from profile for leave
- private approvalStageMessage = new BehaviorSubject('mayu');
- currentApprovalStageMessage = this.approvalStageMessage.asObservable();
+public logginUserIdentification!:string;
 
+// to provide loginSystemuser email id for universally (globally) to project 
  updateApprovalMessage(email: string) {
-  this.approvalStageMessage.next(email)
+ this.logginUserIdentification=email;
   }
+  
+
+
 }

@@ -19,6 +19,7 @@ export class UserService {
     return this.http.post("http://localhost:8080/leave/addleave",leave);
   }
 
+
   getProfileData(id:String): Observable<any> {
     return this.http.get<any>('http://localhost:8080/leave/getprofiledata/'+id);
   }
@@ -34,4 +35,18 @@ export class UserService {
   {
     return this.http.post('http://localhost:8080/profile/addprofile',profile)
   }
+
+  getProfile(id:Number): Observable<any> {
+    console.log(id);
+    return this.http.get<any>('http://localhost:8080/profile/getProfile/'+id);
+  }
+  
+  getAllProfileData():Observable<any>{
+    return this.http.get<any>('http://localhost:8080/profile/getCompleteProfile');
+  }
+
+  getDocumentData():Observable<any>{
+    return this.http.get<any>('http://localhost:8080/document/getDocuments');
+  }
+ 
 }

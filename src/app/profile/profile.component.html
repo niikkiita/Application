@@ -33,49 +33,87 @@
 
     <main>
       <div class="row">
-        
+
       </div>
       <div class="row">
-          <form >
-              <div class="form-row " style="padding: 100px;width: 63%;" >
-                
-                <label for="UserId"><b>User Id</b></label>
-                      <input type="text"  class="form-control " id="inlineFormInput"  placeholder="UserId"
-                         formControlName="uid" [(ngModel)]="profile.userid">
-            
-                  <br/>  <br/>
-              
-                  <label for="skillset"><b>SkillSet</b></label>
-                      <input type="text" class="form-control" id="inlineFormInput" placeholder="skillset"
-                          formControlName="skillset"[(ngModel)]="profile.skillSet" >
-             
-                          <br/>  <br/>
-                         
-                          <label for="experience"><b>Experience</b></label>
-                      <input type="text" class="form-control" id="inlineFormInput"  placeholder="experience"
-                          formControlName="experience"[(ngModel)]="profile.experience">
-               
-                          <br/>  <br/>
-  
-                          <label for="currentproject"><b>Current Project</b></label>
-                      <input type="text" class="form-control" id="inlineFormInput"  placeholder="currentproject"
-                          formControlName="currentproject"[(ngModel)]="profile.currentProject">
-              
-                          <br/>  <br/>
-                          <label for="currentprojectid"><b>Current Project Id</b></label>
-                          <input type="text" class="form-control" id="inlineFormInput"  placeholder="currprojid"
-                              formControlName="currprojid"[(ngModel)]="profile.currentProjectId">
-                  
-                              <br/>  <br/>
-          
-                              <label for="Releasedate"><b>Releasedate</b></label>
-                      <input type="text" class="form-control" id="inlineFormInput" placeholder="releasedate"
-                          formControlName="releasedate"[(ngModel)]="profile.releaseDate">
-                          <br/>  <br/>
-                      <button type="submit" class="button1" >Save</button>
-               
+        <form>
+          <div class="form-row " style="padding: 50px;width: 63%;">
+
+            <label for="UserId"><b>User Id</b></label>
+            <input type="text" class="form-control " id="inlineFormInput" placeholder="UserId" 
+              [(ngModel)]="profile.userid" name="userid">
+
+            <br /> <br />
+
+            <label for="skillset"><b>SkillSet</b></label>
+            <input type="text" class="form-control" id="inlineFormInput" placeholder="skillset"
+               [(ngModel)]="profile.skillSet" name="skillset">
+
+            <br /> <br />
+
+            <label for="experience"><b>Experience</b></label>
+            <input type="text" class="form-control" id="inlineFormInput" placeholder="experience"
+               [(ngModel)]="profile.experience" name="experience">
+
+            <br /> <br />
+
+            <label for="currentproject"><b>Current Project</b></label>
+            <input type="text" class="form-control" id="inlineFormInput" placeholder="currentproject"
+               [(ngModel)]="profile.currentProject" name="projectname">
+
+            <br /> <br />
+            <label for="currentprojectid"><b>Current Project Id</b></label>
+            <input type="text" class="form-control" id="inlineFormInput" placeholder="currprojid"
+               [(ngModel)]="profile.currentProjectId" name="projectid">
+
+            <br /> <br />
+
+            <label for="Releasedate"><b>Releasedate</b></label>
+            <input type="text" class="form-control" id="inlineFormInput" placeholder="releasedate"
+               [(ngModel)]="profile.releaseDate" name="releaseDate">
+            <br /> <br />
+
+            <div class="row">
+              <div class="col-8">
+                <label class="btn btn-default p-0">
+                  <input type="file" (change)="selectFile($event)" />
+                </label>
               </div>
-          </form>
+              <div class="col-4">
+                <button class="btn btn-success btn-sm" [disabled]="!selectedFiles" (click)="upload()">
+                  Upload
+                </button>
+              </div>
+            </div>
+            <div *ngIf="currentFile" class="progress my-3">
+              <div
+                class="progress-bar progress-bar-info progress-bar-striped"
+                role="progressbar"
+                attr.aria-valuenow="{{ progress }}"
+                aria-valuemin="0"
+                aria-valuemax="100"
+                [ngStyle]="{ width: progress + '%' }"
+                >
+                  {{ progress }}%
+                </div>
+              </div>
+              <div *ngIf="message" class="alert alert-secondary" role="alert">{{ message }}</div>
+              <!-- <div class="card mt-3">
+                <div class="card-header">List of Files</div>
+                <ul
+                  class="list-group list-group-flush"
+                  *ngFor="let file of fileInfos | async"
+                >
+                  <li class="list-group-item">
+                    <a href="{{ file.url }}">{{ file.name }}</a>
+                  </li>
+                </ul>
+              </div> -->
+            <button type="submit" (click)="addprofile()" class="button1">Save</button>
+
+                    
+          </div>
+        </form>
       </div>
     </main>
 

@@ -10,8 +10,8 @@ import { UserService } from '../user.service';
   styleUrls: ['./leaveplan.component.css']
 })
 export class LeaveplanComponent implements OnInit {
-leave: Leaves = new Leaves();
-leaves!:Leaves[];
+  leave: Leaves = new Leaves();
+  leaves!:Leaves[];
   profile: Profile = new Profile();
   email!:string;
   startdate!:Date;
@@ -22,7 +22,7 @@ leaves!:Leaves[];
 
   ngOnInit(): void {
     
-    this.loginService.currentApprovalStageMessage.subscribe(msg => this.email = msg)
+    this.email=this.loginService.logginUserIdentification;
     this.relloadData();
     this.getLeavesData();
   }

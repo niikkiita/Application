@@ -26,6 +26,7 @@ import { EmployeeListComponent } from './employee-list/employee-list.component';
 import { ManageLeaveComponent } from './manage-leave/manage-leave.component';
 import { AssignTaskComponent } from './assign-task/assign-task.component';
 import { AddEmployeeComponent } from './add-employee/add-employee.component';
+import { AllTaskStatusComponent } from './all-task-status/all-task-status.component';
 
 
 @NgModule({
@@ -47,7 +48,8 @@ import { AddEmployeeComponent } from './add-employee/add-employee.component';
     EmployeeListComponent,
     ManageLeaveComponent,
     AssignTaskComponent,
-    AddEmployeeComponent
+    AddEmployeeComponent,
+    AllTaskStatusComponent
   ],
   imports: [
     BrowserModule,

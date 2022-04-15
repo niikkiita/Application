@@ -38,50 +38,49 @@
         <div class="main__container">
   
   
-          <div class="main__title">
-            <img src="assets/hello.svg" alt="" />
-            <div class="main__greeting">
-              <h1>Hello Manager</h1>
-              <p>Welcome to our dashboard</p>
-            </div>
-          </div>
-  
-  
-          <div class="main__cards">
-            <div class="card">
-              <i
-                class="fa fa-user-o fa-2x text-lightblue"
-                aria-hidden="true"
-              ></i>
-              <div class="card_inner">
-                <p class="text-primary-p">Total no of available project</p>
-                <span class="font-bold text-title">100</span>
-              </div>
-            </div>
-  
-            <div class="card">
-              <i class="fa fa-calendar fa-2x text-red" aria-hidden="true"></i>
-              <div class="card_inner">
-                <p class="text-primary-p">Flexible Working System</p>
-                <span class="font-bold text-title"></span>
-              </div>
-            </div>
-  
-  
-  
-            <div class="card">
-              <i
-                class="  fa fa-thumb-tack fa-2x text-green"
-                aria-hidden="true"
-              ></i>
-              <div class="card_inner">
-                <p class="text-primary-p">Big Tasks Performed Easily</p>
-                <span class="font-bold text-title"></span>
-              </div>
-            </div>
-          </div>
-  
-  
+            <form>
+                <table border="1" class="table table-striped  ">
+                  <thead class="thead-dark">
+                    <tr>
+
+<!-- 
+     userid!:number;
+    userName!:"";
+	taskId!:number;
+	taskDetails!:String;
+	taskStatus!:String;
+	startDate!:Date;
+	endDate!:Date;
+	currentProjectId!:number;
+    currentprojectName!:"";
+ -->
+
+
+                      <th>Task Id</th>
+                      <th>Username</th>
+                      <th>Task Details</th>
+                      <th>Start Date</th>
+                      <th>End Date</th>
+                      <th>Project Name</th>
+                      <th>Status</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let task of taskArray">
+                      <!-- <td>{{leave.userid}}</td> -->
+                      <td>{{task.taskId}}</td>
+                      <td>{{task.userName}}</td>
+                      <td>{{task.taskDetails}}</td>
+                      <td>{{task.startDate}}</td>
+                      <td>{{task.endDate}}</td>
+                      <td>{{task.currentProjectName}}</td>
+                      <td>{{task.taskStatus}}</td>
+                      
+                    </tr>
+                  </tbody>
+                </table>
+              </form>
+
         </div>
       </main>
   
@@ -128,9 +127,8 @@
           <div class="sidebar__link">
             <i class="fa fa-thumb-tack" aria-hidden="true"></i>
   
-            <a routerLink="/all-task-status">Task Status</a>
+            <a routerLink="/all-task-status">Task History</a>
           </div>
-
           <div class="sidebar__link">
             <i class="fa fa-thumb-tack" aria-hidden="true"></i>
   
@@ -141,7 +139,7 @@
   
           <div class="sidebar__logout">
             <i class="fa fa-power-off"></i>
-         <a (click)="logout()">Log out</a>
+         <a >Log out</a>
           </div>
         </div>
       </div>

@@ -1,18 +1,19 @@
 import { Byte } from "@angular/compiler/src/util";
 
-export class Profile{
+export class Documents {
+    documentId!:number;
+    data!:Byte;
+    fileName!:String;
+    fileType!:String;
     profileId!:number;
 	userid!:number;
     currentProjectId!:number;
 	skillSet="";
-    experience!:string;
+    experience!:"";
 	currentProject="";
 	releaseDate!:Date ;
     emailId!:"";
-    userName!:String;
-    data!:Byte;
-    fileName!:String;
-    fileType!:String;
+    userName!:"";
 
 }
 
