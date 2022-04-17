@@ -36,11 +36,49 @@
       <main>
         <div class="main__container">
   
+
+          <form>
+            <div class="form-row">
+              <div class="form-group"> 
+                <input type="text" [(ngModel)]="userId" name="id" (keyup)="getProfile()" class="form-control" id="exampleInputId"
+                  aria-describedby="idHelp" placeholder=" Enter Project Id ">
+              </div> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <button type="submit" class="button button1" (click)="apply()" >Apply</button>
+      {{userId}}{{profile | json}}
+            </div>
+          </form>
+          <br>
+          <table  border="1" class="table table-striped " >
+            <thead class="thead-dark">
+              <tr>
+                <!--<th>Employee ID</th> -->
+               <th>USER ID</th>
+               <th>USER NAME</th>
+                <th>CURRENT PROJECT ID</th>
+                <th>CURRENT PROJECT</th>
+                <th>RELEASE DATE</th>
+                <th>NEW PROJECT ID</th>
+                <th>NEW PROJECT</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let profile of profiles" >
+              <!--<td>{{employee.employeeId}}</td>-->
+                
+                <td>{{profile.userid}}</td>
+                <td>{{profile.userName}}</td>
+                <td>{{profile.currentProjectId}}</td>
+                <td>{{profile.currentProject}}</td>
+                <td>{{profile.releaseDate}}</td>
+                <td>{{profile.newProjectId}}</td>
+                <td>{{profile.newProject}}</td>
+              </tr>
+              
+              
+            </tbody>
+          </table>
   
-       <p>lorem ipsum dolor sit amet, consenter adit</p>
-       <p>lorem ipsum dolor sit amet, consent</p>
-       <p>lorem ipsum dolor sit amet, consent</p>
-  
+
         </div>
       </main>
   

@@ -4,6 +4,11 @@ import { UserService } from '../user.service';
 import { HttpEventType, HttpResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { FileUploadServiceService } from '../file-upload-service.service';
+import { ThisReceiver } from '@angular/compiler';
+import { LoginService } from '../login.service';
+import { TaskService } from '../task.service';
+import { RegisterService } from '../register.service';
+import { ProjectsService } from '../projects.service';
 
 
 @Component({
@@ -17,11 +22,17 @@ export class ProfileComponent implements OnInit {
   currentFile?: File;
   progress = 0;
   message = '';
+  email!:string;
+  projectName!:string;
+  projectId!:number;
+
   fileInfos?: Observable<any>;
 
-  constructor(private userService: UserService, private uploadService: FileUploadServiceService) { }
+  constructor(private userService: UserService, private registerService:RegisterService, private taskService:TaskService, private loginService:LoginService ,  private projectService:ProjectsService, private uploadService: FileUploadServiceService) { }
 
   ngOnInit(): void {
+    this.email=this.loginService.logginUserIdentification;
+this.getUserNameById();
     this.fileInfos = this.uploadService.getFiles();
   }
 
@@ -30,6 +41,8 @@ export class ProfileComponent implements OnInit {
   profile: Profile = new Profile();
 
   addprofile(): void {
+    this.profile.currentProject=this.projectName;
+    this.profile.currentProjectId=this.projectId;
     console.log(this.profile);
     this.userService.addprofile(this.profile).subscribe(
       data => {
@@ -73,4 +86,31 @@ export class ProfileComponent implements OnInit {
       this.selectedFiles = undefined;
     }
   }
+
+  getUserNameById()
+  {
+    let userId=this.loginService.loggInUserId;
+      this.loginService.getUserId(this.email).subscribe(
+       data =>   {
+            this.profile.userid=userId;
+            this.profile.userName=data.name;
+            this.profile.emailId=data.emailId;
+            console.log(data,userId)
+       },
+       error => {
+
+       }
+      );
+  }
+
+  getProject()
+  {
+this.projectService.getProject(this.projectId).subscribe(
+  data => {
+    console.log(data)
+    this.projectName=data.pName;
+  }
+)
+  }
+
 }

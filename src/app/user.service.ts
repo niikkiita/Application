@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Leaves } from './models/leaves';
 import { Profile } from './models/profile';
+import { Project } from './models/project';
 
 
 @Injectable({
@@ -48,5 +49,23 @@ export class UserService {
   getDocumentData():Observable<any>{
     return this.http.get<any>('http://localhost:8080/document/getDocuments');
   }
+
+  // apply new project
+  applyProject(profileId:number,profile:Profile):Observable<any>{
+    return this.http.put<any>('http://localhost:8080/profile/applynewproject/'+profileId,profile);
+  }
  
+// get ProjectsList whoe want change in projectt
+  getProjectListByChangeId():Observable<any>
+  {
+    return this.http.get<any>("http://localhost:8080/profile/profilesbychangeid")
+  }
+
+// change the project of employee Owner
+changeProjectInternally(profileId:number,profile:Profile):Observable<any>
+{
+
+return this.http.put<any>('http://localhost:8080/profile/changeproject/'+profileId,profile)
+
+}
 }

@@ -39,7 +39,11 @@ export class LeaveplanComponent implements OnInit {
       }, error => alert(error));
   }
 
-
+signInAddLeavePlusReloaddata()
+{
+  this.addLeave();
+  this.getLeavesData();
+}
   addLeave() {
     
     this.leave.status="unapproved";

@@ -10,13 +10,14 @@ import { LoginService } from '../login.service';
 export class LoginComponent implements OnInit {
 
   credentials = {
-    emailId: '',
-    password: ''
+    emailId: 'mayurr@gmail.com',
+    password: 'password'
   }
   constructor(private loginService: LoginService, private router: Router) { }
 
   onSubmit() {
-    this.loginService.updateApprovalMessage(this.credentials.emailId)
+    this.loginService.updateApprovalMessage(this.credentials.emailId);
+    this.getUserId();   
     if ((this.credentials.emailId != "" && this.credentials.password != "") && (this.credentials.emailId != null && this.credentials.password != null)) {
       this.loginService.logInThe(this.credentials).subscribe(
         response => {
@@ -34,7 +35,15 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  
+  getUserId()
+  {
+    this.loginService.getUserId(this.credentials.emailId).subscribe(
+      data => {
+        this.loginService.loggInUserId=data.userid;
+        console.log(data.userid)
+      }
+    )
+  }
  
   ngOnInit(): void {
     // for getting data off profile for leave
