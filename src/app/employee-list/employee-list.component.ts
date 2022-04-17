@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../auth.service';
 import { Documents } from '../models/documents';
 import { Profile } from '../models/profile';
 import { UserService } from '../user.service';
@@ -14,7 +15,7 @@ export class EmployeeListComponent implements OnInit {
   profileObj:Profile= new Profile();
   profileArray:Profile[]=[];
   documentArray:Documents[]=[];
-  constructor(private userService:UserService) { }
+  constructor(private userService:UserService, private authservice:AuthService) { }
 
   ngOnInit(): void {
     this.getAllProfileData();
@@ -40,5 +41,9 @@ export class EmployeeListComponent implements OnInit {
         console.log(data)
       }, error => alert("OnLoad Not working")
     )
+  }
+   logout()
+  {
+    this.authservice.logoutUser();
   }
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../auth.service';
 import { Task } from '../models/task';
 import { TaskService } from '../task.service';
 
@@ -9,7 +10,7 @@ import { TaskService } from '../task.service';
 })
 export class AllTaskStatusComponent implements OnInit {
 
-  constructor(private taskservice:TaskService) { }
+  constructor(private taskservice:TaskService,private authservice:AuthService) { }
   taskObj:Task=new Task();
   taskArray:Task[]=[];
   ngOnInit(): void {
@@ -22,6 +23,10 @@ export class AllTaskStatusComponent implements OnInit {
         data => { this.taskArray = data }, 
         error => alert("cant fetch")
       )
+    }
+  
+    logout() {
+      this.authservice.logoutUser();
     }
   
   }

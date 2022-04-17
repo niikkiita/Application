@@ -63,6 +63,7 @@
                       <th>End Date</th>
                       <th>Project Name</th>
                       <th>Status</th>
+                      <th>Completion Date</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -75,7 +76,7 @@
                       <td>{{task.endDate}}</td>
                       <td>{{task.currentProjectName}}</td>
                       <td>{{task.taskStatus}}</td>
-                      
+                      <td>{{task.completionDate}}</td>
                     </tr>
                   </tbody>
                 </table>
@@ -139,7 +140,7 @@
   
           <div class="sidebar__logout">
             <i class="fa fa-power-off"></i>
-         <a >Log out</a>
+         <a (click)="logout()">Log out</a>
           </div>
         </div>
       </div>

@@ -44,22 +44,22 @@
             <div class="form-group">
                 <label for="exampleInputName">Project Name</label>
                 <input type="text" [(ngModel)]="project.pName" name="pname" class="form-control" id="exampleInputName"
-                    placeholder="Name">
+                    placeholder="Project Name">
             </div>
             <div class="form-group">
                 <label for="exampleInputtext">Project Description</label>
                 <input type="text" [(ngModel)]="project.pDescription" name="pdescription" class="form-control" id="exampleInputtext"
-                    placeholder="text">
+                    placeholder="Enter Description">
             </div>
             <div class="form-group">
                 <label for="exampleInputSize">Team Size</label>
                 <input type="number" [(ngModel)]="project.teamSize" name="teamsize" class="form-control" id="exampleInputSize"
-                    placeholder="number">
+                    placeholder="Enter team size">
             </div>
             <div class="form-group">
                 <label for="exampleInputLimit">Team Limit</label>
                 <input type="number" [(ngModel)]="project.teamLimit" name="teamlimit" class="form-control" id="exampleInputLimit"
-                    placeholder="number">
+                    placeholder="Enter Team Limit">
             </div>
             <div class="form-group">
                 <label for="exampleInputdate">Project Starting Date</label>
@@ -73,7 +73,7 @@
             </div>
     
            
-            <button type="submit" class="btn btn-primary">Add Project</button>
+            <button type="submit" class="glow-on-hover">Add Project</button>
         </form>
     </div>
       </main>
@@ -127,7 +127,7 @@
   
           <div class="sidebar__logout">
             <i class="fa fa-power-off"></i>
-            <a routerLink="/home">Log out</a>
+            <a (click)="logout()">Log out</a>
           </div>
         </div>
       </div>

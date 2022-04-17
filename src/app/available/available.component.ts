@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../auth.service';
 import { Project } from '../models/project';
 import { ProjectsService } from '../projects.service';
 
@@ -11,12 +12,12 @@ export class AvailableComponent implements OnInit {
 
   
 
-  constructor( private projectsService:ProjectsService) { }
+  constructor( private projectsService:ProjectsService, private authservice:AuthService) { }
   projects: Array<Project> = new Array();
   ngOnInit(): void {
     this.reloadData();
   }
-
+  
   reloadData(){
     this.projectsService.getProjectList().subscribe(
       data=>{
@@ -36,9 +37,9 @@ export class AvailableComponent implements OnInit {
     teamSize:'1',
     teamLimit:'3'
   }
-// reload()
-// {
-// this.employees=this.data;
-// }
 
+  logout()
+  {
+    this.authservice.logoutUser();
+  }
 }

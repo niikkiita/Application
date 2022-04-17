@@ -23,8 +23,8 @@ export class UserService {
   getProfileData(id:String): Observable<any> {
     return this.http.get<any>('http://localhost:8080/leave/getprofiledata/'+id);
   }
-  
 
+  
   getLeaves():Observable<any>
   {
     return this.http.get('http://localhost:8080/leave/getleaves');
@@ -48,5 +48,10 @@ export class UserService {
   getDocumentData():Observable<any>{
     return this.http.get<any>('http://localhost:8080/document/getDocuments');
   }
- 
+  
+  getallProfileData(id:String): Observable<any> {
+    console.log(id)
+    return this.http.get<any>('http://localhost:8080/task/getallprofiledata/'+id);
+  }
+
 }

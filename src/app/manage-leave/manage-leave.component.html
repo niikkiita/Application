@@ -33,9 +33,32 @@
 
         <main>
             <div class="main__container">
-                <h3>Employee's Leave Details</h3>
 
-                <br><br>
+                <div class="form">
+                    <form >
+                        <div class="form-group">
+                            <label for="exampleInputId">Leave ID</label>
+                            <input type="number" [(ngModel)]="leaveObj.leaveId" name="id" class="form-control" id="exampleInputId"
+                                aria-describedby="idHelp" placeholder="Leave Id">
+                          
+                        </div>
+                        <br>
+                        <div class="form-group">
+                            <label for="exampleInputName">Reason</label>
+                            <input type="text" [(ngModel)]="leaveObj.reason" name="description" class="form-control" id="description"
+                                placeholder="Name">
+                        </div><br>
+                        <button type="submit" class="glow-on-hover" (click)="updateData()">Decline</button> &nbsp; 
+                        <button type="submit" (click)="onApproved()"  class="glow-on-hover" >Approve</button>
+                    </form>
+                    
+
+                </div> 
+
+
+                <br>
+                <h4>Employee's Leave Details</h4>
+                <br>
                 <table border="1" class="table table-striped  ">
                     <thead class="thead-dark">
                         <tr>
@@ -70,26 +93,7 @@
 
                 
  
-                <div class="form">
-                    <form >
-                        <div class="form-group">
-                            <label for="exampleInputId">Leave ID</label>
-                            <input type="number" [(ngModel)]="leaveObj.leaveId" name="id" class="form-control" id="exampleInputId"
-                                aria-describedby="idHelp" placeholder="Leave Id">
-                          
-                        </div>
-                        <br>
-                        <div class="form-group">
-                            <label for="exampleInputName">Reason</label>
-                            <input type="text" [(ngModel)]="leaveObj.reason" name="description" class="form-control" id="description"
-                                placeholder="Name">
-                        </div><br>
-                        <button type="submit" class="btn btn-danger" (click)="updateData()">Decline</button> &nbsp; 
-                        <button type="submit" (click)="onApproved()"  class="btn btn-success" >Approve</button>
-                    </form>
-                    
-
-                </div> 
+                
                 
 
 
@@ -143,7 +147,7 @@
                 </div>
                 <div class="sidebar__logout">
                     <i class="fa fa-power-off"></i>
-                    <a routerLink="/home">Log out</a>
+                    <a (click)="logout()">Log out</a>
                 </div>
             </div>
         </div>

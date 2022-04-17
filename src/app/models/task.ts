@@ -8,4 +8,5 @@ export class Task {
 	endDate!:Date;
 	currentProjectId!:number;
     currentProjectName!:"";
+	completionDate!:String;
 }

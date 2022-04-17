@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
+import { AuthService } from '../auth.service';
 import { LeaveService } from '../leave.service';
 import { AcceptLeave } from '../models/accept-leave';
 import { Leaves } from '../models/leaves';
@@ -20,7 +21,7 @@ export class ManageLeaveComponent implements OnInit {
   Acceptleave: AcceptLeave = new AcceptLeave();
 
 
-  constructor(private leaveservice: LeaveService, private fb: FormBuilder) {
+  constructor(private leaveservice: LeaveService, private fb: FormBuilder,private authservice:AuthService) {
 
   }
 
@@ -45,7 +46,6 @@ export class ManageLeaveComponent implements OnInit {
 
 
   
-
   updateData() {
     this.leaveObj.status = "Declined";
     this.leaveservice.updateData(this.leaveObj.leaveId, this.leaveObj).subscribe({
@@ -67,5 +67,8 @@ export class ManageLeaveComponent implements OnInit {
       error: (e) => alert("status not saved ")
 
     })
+  }
+  logout() {
+    this.authservice.logoutUser();
   }
 }

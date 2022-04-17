@@ -4,6 +4,7 @@ import { UserService } from '../user.service';
 import { HttpEventType, HttpResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { FileUploadServiceService } from '../file-upload-service.service';
+import { AuthService } from '../auth.service';
 
 
 @Component({
@@ -19,13 +20,11 @@ export class ProfileComponent implements OnInit {
   message = '';
   fileInfos?: Observable<any>;
 
-  constructor(private userService: UserService, private uploadService: FileUploadServiceService) { }
+  constructor(private userService: UserService, private uploadService: FileUploadServiceService,private authservice:AuthService) { }
 
   ngOnInit(): void {
     this.fileInfos = this.uploadService.getFiles();
   }
-
-
 
   profile: Profile = new Profile();
 
@@ -73,4 +72,9 @@ export class ProfileComponent implements OnInit {
       this.selectedFiles = undefined;
     }
   }
+
+  logout()
+  {
+    this.authservice.logoutUser();
+  } 
 }

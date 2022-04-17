@@ -38,7 +38,7 @@
             <tr>
               <!--<th>Employee ID</th> -->
               <!--<th>User id</th> -->
-              
+
               <!-- documentId!:number;
     data!:Byte;
     fileName!:String;
@@ -52,27 +52,28 @@
 	releaseDate!:Date ;
     emailId!:"";
     userName!:""; -->
-              <th>profile Id</th>
               <th>User Id</th>
+              <th>User Name</th>
               <th>Project Id</th>
-              <th>Experience</th>
               <th>Project name</th>
+              <th>Experience</th>
               <th>Release Date</th>
-              <th>File name</th>
+              <!-- <th>File name</th> -->
 
 
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let emp of profileArray" >
+            <tr *ngFor="let emp of profileArray">
               <!-- <td>{{leave.userid}}</td> -->
-              <td>{{emp.profileId}}</td>
               <td>{{emp.userid}}</td>
+              <td>{{emp.userName}}</td>
               <td>{{emp.currentProjectId}}</td>
-              <td>{{emp.experience}}</td>
               <td>{{emp.currentProject}}</td>
+              <td>{{emp.experience}}</td>
               <td>{{emp.releaseDate}}</td>
-              <td  *ngFor="let docs of documentArray">{{docs.fileName}}</td>
+
+              <!-- / <td >{{docs.fileName}}</td> -->
             </tr>
           </tbody>
         </table>
@@ -126,7 +127,7 @@
         </div>
         <div class="sidebar__logout">
           <i class="fa fa-power-off"></i>
-          <a routerLink="/home">Log out</a>
+          <a (click)="logout()">Log out</a>
         </div>
       </div>
     </div>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../auth.service';
 import { Profile } from '../models/profile';
 import { Task } from '../models/task';
 import { TaskService } from '../task.service';
@@ -11,7 +12,7 @@ import { UserService } from '../user.service';
 })
 export class AssignTaskComponent implements OnInit {
 
-  constructor(private userService: UserService,private taskService:TaskService) { }
+  constructor(private userService: UserService,private taskService:TaskService,private authservice:AuthService) { }
   profileObj: Profile = new Profile();
   profileArray: Profile[] = [];
   taskObj: Task = new Task();
@@ -67,11 +68,14 @@ export class AssignTaskComponent implements OnInit {
         console.log("Task Added")
         this.taskService.sendEmail(this.email1).subscribe(
           data=>{
-            console.log("email sent")
+            alert("email sent")
           },error=>alert("email has not sent")
         )
       },error=>alert(error)
     );
+  }
+  logout() {
+    this.authservice.logoutUser();
   }
 
 

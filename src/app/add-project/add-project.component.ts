@@ -27,4 +27,8 @@ export class AddProjectComponent implements OnInit {
       }
       );
   }
+  logout()
+  {
+    this.authservice.logoutUser();
+  }
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../auth.service';
 import { LoginService } from '../login.service';
 import { Leaves } from '../models/leaves';
 import { Profile } from '../models/profile';
@@ -18,7 +19,7 @@ export class LeaveplanComponent implements OnInit {
   endDate!:Date;
   reason!:string;
 
-  constructor( private userService:UserService, private loginService:LoginService) { }
+  constructor( private userService:UserService, private loginService:LoginService, private authservice:AuthService) { }
 
   ngOnInit(): void {
     
@@ -58,6 +59,11 @@ getLeavesData()
   error => {
   }
   )
+}
+
+logout()
+{
+  this.authservice.logoutUser();
 }
 
 }
