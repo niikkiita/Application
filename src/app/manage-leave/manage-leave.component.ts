@@ -56,6 +56,7 @@ export class ManageLeaveComponent implements OnInit {
       error: (e) => alert("not saved")
     })
   }
+  
   onApproved() {
     this.leaveObj.status = "Approved";
 

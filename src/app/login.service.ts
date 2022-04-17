@@ -20,12 +20,16 @@ export class LoginService {
 
 // To fetch the data from profile for leave
 public logginUserIdentification!:string;
+public loggInUserId!:number;
 
 // to provide loginSystemuser email id for universally (globally) to project 
  updateApprovalMessage(email: string) {
  this.logginUserIdentification=email;
   }
   
-
-
+// get userId for universal(globally) use 
+getUserId(email:string)
+{
+  return this.http.get<any>("http://localhost:8080/user/getuserid/"+email)
+}
 }

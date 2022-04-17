@@ -21,5 +21,11 @@ export class ProjectsService {
     return this.http.get<any>('http://localhost:8080/projects/projectslist');
   }
 
+  // get project name to apply for new project => available
+  getProject(id:number):Observable<any>
+  {
+    return this.http.get<any>("http://localhost:8080/projects/getprojectname/"+id)
+  }
+
 
 }

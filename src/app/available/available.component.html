@@ -35,8 +35,19 @@
 
     <main>
       <div class="main__container">
-
-
+        <form>
+          <div class="form-row">
+            <div class="form-group"> 
+              <input type="number" [(ngModel)]="projectId" name="id" (keyup)="getProject()" class="form-control" id="exampleInputId"
+                aria-describedby="idHelp" placeholder=" Enter Project Id ">
+            </div> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <button type="submit" class="button button1" (click)="okValidate()" >Apply</button>
+    {{userId}}{{profile | json}}
+          </div>
+        </form>
+        <div class="alert" >
+         {{alertMessage}}
+        </div>
 
 
 
@@ -46,14 +57,13 @@
             <tr>
               <!--<th>Employee ID</th> -->
              
-              <th>project id</th>
-              <th>project name</th>
-              <th>project description</th>
-               <th>startdate</th>
-               <th>prapose date</th>
-               <th>team Size</th>
-               <th>team limit</th>
-               <th>actioN</th>
+              <th>PROJECT ID</th>
+              <th>PROJECT NAME</th>
+              <th>PROJECT DETAILS</th>
+               <th>START DATE</th>
+               <th>PRAPOSED DATE</th>
+               <th>TEAM SIZE</th>
+               <th>TEAM LIMIT</th>
             </tr>
           </thead>
           <tbody>
@@ -67,12 +77,6 @@
               <td>{{project.proposedDate}}</td>
               <td>{{project.teamSize}}</td>
               <td>{{project.teamLimit}}</td>
-               <td>
-                 <button type="button" class="btn btn-success">apply</button>
-                <!-- <button type="button" class="btn btn-primary" (click)=" goToEditEmployee(employee.employeeId)">Edit</button>&nbsp;
-                <button type="button" class="btn btn-info" (click)="goToViewEmployee(employee.employeeId)">View</button>&nbsp;
-              -->
-              </td> 
             </tr>
             
             

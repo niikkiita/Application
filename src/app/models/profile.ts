@@ -13,6 +13,10 @@ export class Profile{
     data!:Byte;
     fileName!:String;
     fileType!:String;
+    newProjectId!:number;
+    newProject!:String;
+    projectChangeId!:number;
+    
 
 }
 

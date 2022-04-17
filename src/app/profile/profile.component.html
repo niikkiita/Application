@@ -39,37 +39,34 @@
         <form>
           <div class="form-row " style="padding: 50px;width: 63%;">
 
-            <label for="UserId"><b>User Id</b></label>
-            <input type="text" class="form-control " id="inlineFormInput" placeholder="UserId" 
-              [(ngModel)]="profile.userid" name="userid">
-
-            <br /> <br />
-
-            <label for="skillset"><b>SkillSet</b></label>
-            <input type="text" class="form-control" id="inlineFormInput" placeholder="skillset"
+            <label for="skillset"><b>SKILL SET</b></label>
+            <input type="text" class="form-control" id="inlineFormInput" placeholder="      ENTER YOUR SKILLS"
                [(ngModel)]="profile.skillSet" name="skillset">
 
-            <br /> <br />
+            <br /> <br /> <br>
 
-            <label for="experience"><b>Experience</b></label>
-            <input type="text" class="form-control" id="inlineFormInput" placeholder="experience"
+            <label for="experience"><b>EXPERIENCE</b></label>
+            <input type="text" class="form-control" id="inlineFormInput" placeholder="      EXPERIENCE IN YEARS"
                [(ngModel)]="profile.experience" name="experience">
 
-            <br /> <br />
+               <br /> <br /><br>
+               <label for="currentprojectid"><b>Current Project Id</b></label>
+               <input type="text" class="form-control" id="inlineFormInput" placeholder="     ENTER YOUR PROJECT ID"
+                  [(ngModel)]="projectId" (keyup)="getProject()" name="currprojid">
+   
 
-            <label for="currentproject"><b>Current Project</b></label>
-            <input type="text" class="form-control" id="inlineFormInput" placeholder="currentproject"
-               [(ngModel)]="profile.currentProject" name="projectname">
 
-            <br /> <br />
-            <label for="currentprojectid"><b>Current Project Id</b></label>
-            <input type="text" class="form-control" id="inlineFormInput" placeholder="currprojid"
-               [(ngModel)]="profile.currentProjectId" name="projectid">
+            <br /> <br /><br>
 
-            <br /> <br />
+            <label for="currentproject"><b>CURRENT PROJECT</b></label>
+            <input type="text" class="form-control" id="inlineFormInput" placeholder="      THE PROJECT, YOU ARE WORKING ON"
+               [(ngModel)]="projectName" name="currentproject" >
 
-            <label for="Releasedate"><b>Releasedate</b></label>
-            <input type="text" class="form-control" id="inlineFormInput" placeholder="releasedate"
+           
+            <br /> <br /> <br>
+
+            <label for="Releasedate"><b>RELEASE DATE</b></label>
+            <input type="date" class="form-control" id="inlineFormInput" placeholder=" WHEN YOU WILL GET RELEASE FROM CURRENT PROJECT"
                [(ngModel)]="profile.releaseDate" name="releaseDate">
             <br /> <br />
 
@@ -98,20 +95,8 @@
                 </div>
               </div>
               <div *ngIf="message" class="alert alert-secondary" role="alert">{{ message }}</div>
-              <!-- <div class="card mt-3">
-                <div class="card-header">List of Files</div>
-                <ul
-                  class="list-group list-group-flush"
-                  *ngFor="let file of fileInfos | async"
-                >
-                  <li class="list-group-item">
-                    <a href="{{ file.url }}">{{ file.name }}</a>
-                  </li>
-                </ul>
-              </div> -->
+              <br><br>
             <button type="submit" (click)="addprofile()" class="button1">Save</button>
-
-                    
           </div>
         </form>
       </div>
