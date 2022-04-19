@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+
 import { AcceptLeave } from './models/accept-leave';
 import { Leaves } from './models/leaves';
 const baseurl='http://localhost:8080/leave/update';
@@ -15,9 +16,7 @@ export class LeaveService {
   getLeaveList(): Observable<any> {
     return this.http.get<any>('http://localhost:8080/leave/getleaves');
   }
-  // postLeave(AcceptLeave:any):Observable<any>{
-  //   return this.http.post<any>('http://localhost:8080/leave/addleave',AcceptLeave)
-  // }
+  
   updateData(leaveId:number,description:Leaves):Observable<any>{
     console.log(description);
     return this.http.put<any>('http://localhost:8080/leave/update/'+leaveId,description);
@@ -25,4 +24,6 @@ export class LeaveService {
   updateStatus(leaveId:number,reason:Leaves):Observable<any>{
     return this.http.put<any>('http://localhost:8080/leave/updatestatus/'+leaveId,reason);
   }
+
+  
 }

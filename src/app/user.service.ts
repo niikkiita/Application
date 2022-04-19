@@ -46,9 +46,6 @@ export class UserService {
     return this.http.get<any>('http://localhost:8080/profile/getCompleteProfile');
   }
 
-  getDocumentData():Observable<any>{
-    return this.http.get<any>('http://localhost:8080/document/getDocuments');
-  }
   
   getallProfileData(id:String): Observable<any> {
     console.log(id)
@@ -74,4 +71,38 @@ changeProjectInternally(profileId:number,profile:Profile):Observable<any>
 return this.http.put<any>('http://localhost:8080/profile/changeproject/'+profileId,profile)
 
 }
+
+// download(file: string | undefined): Observable<Blob> {
+//   return this.http.get('http://localhost:8080/profile/download/'+file, {
+//     responseType: 'blob'
+//   });
+// }
+
+// getDocumentData():Observable<any>{
+//   return this.http.get<any>('http://localhost:8080/profile/files');
+// }
+
+// download(id:number): Observable<any> {
+//   return this.http.get<any>('http://localhost:8080/profile/files/'+id);  
+// }
+
+getFiles(): Observable<any> {
+  return this.http.get("http://localhost:8080/profile/files");
+}
+
+//to generate otp for reset password
+genarateotp(email: any): Observable<any> {  
+  return this.http.get<any>('http://localhost:8080/user/forget/'+email);
+}  
+
+//to reset password by emailid
+password(user:any):Observable<any>
+{
+return this.http.put('http://localhost:8080/user/password/'+user.emailId,user)
+}
+changeIdentificationId(id:any,userId:any):Observable<any>
+{
+return this.http.put('http://localhost:8080/user/changeIdentification/'+id,userId)
+}
+
 }

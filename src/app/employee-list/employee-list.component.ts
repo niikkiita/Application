@@ -3,6 +3,8 @@ import { AuthService } from '../auth.service';
 import { Documents } from '../models/documents';
 import { Profile } from '../models/profile';
 import { UserService } from '../user.service';
+import { saveAs } from 'file-saver';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-employee-list',
@@ -11,39 +13,56 @@ import { UserService } from '../user.service';
 })
 export class EmployeeListComponent implements OnInit {
 
-  documentObj:Documents=new Documents();
-  profileObj:Profile= new Profile();
-  profileArray:Profile[]=[];
-  documentArray:Documents[]=[];
-  constructor(private userService:UserService, private authservice:AuthService) { }
+  documentObj: Documents = new Documents();
+  profileObj: Profile = new Profile();
+  profileArray: Profile[] = [];
+  documentArray: Documents[] = [];
+  fileInfos!: Observable<any>
+  constructor(private userService: UserService, private authservice: AuthService) { }
 
   ngOnInit(): void {
     this.getAllProfileData();
-   
+    this.fileInfos=this.userService.getFiles();
+    
+
   }
-  
-  getAllProfileData(){
+
+  getAllProfileData() {
     this.userService.getAllProfileData().subscribe(
       data => {
-        this.profileArray=data;
-        this.profileObj=data;
+        this.profileArray = data;
+        this.profileObj = data;
         console.log(data)
-        this.getAllDocumentData();
+       
       }, error => alert("OnLoad Not working")
     )
   }
-  getAllDocumentData(){
-    this.userService.getDocumentData().subscribe(
-      data => {
-        this.documentArray=data;
-        this.profileObj.currentProjectId=data.documentId;
-        this.documentObj=data;
-        console.log(data)
-      }, error => alert("OnLoad Not working")
-    )
-  }
-   logout()
+
+  getFiles()
   {
+    this.userService.getFiles().subscribe(
+      data=>{
+        this.fileInfos=data;
+
+      },error=>alert("error")
+    )
+  }
+  // getAllDocumentData() {
+    //     data => {
+    //   this.userService.getDocumentData().subscribe(
+  //       this.documentArray = data;
+  //     }, error => alert("OnLoad Not working")
+  //   )
+  // }
+
+  // downloadFile(): void {
+  //   this.userService.download(this.fileInfos).subscribe(
+  //       blob => 
+  //         {saveAs(blob)}
+  //       ,error=>alert("error"));
+  // }
+
+  logout() {
     this.authservice.logoutUser();
   }
 }

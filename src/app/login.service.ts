@@ -21,7 +21,7 @@ export class LoginService {
 // To fetch the data from profile for leave
 public logginUserIdentification!:string;
 public loggInUserId!:number;
-
+public newProfileCheckId!:number;
 // to provide loginSystemuser email id for universally (globally) to project 
  updateApprovalMessage(email: string) {
  this.logginUserIdentification=email;
@@ -32,4 +32,20 @@ getUserId(email:string)
 {
   return this.http.get<any>("http://localhost:8080/user/getuserid/"+email)
 }
+
+resetPassword(email:any):Observable<any>{
+  console.log(email);
+  return this.http.get("http://localhost:8080/user/forgot-password/"+email,{responseType:'text' });    
+}
+
+updatePassword(token:any,password:any):Observable<any>{
+  console.log(password);
+  console.log(token);
+  return this.http.put<any>('http://localhost:8080/user/reset-password/'+token,password);
+}
+setIdentificationId(id:number):Observable<any>{
+ 
+  return this.http.put<any>('http://localhost:8080/user/reset-password/'+id,id);
+}
+
 }
