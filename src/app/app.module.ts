@@ -20,14 +20,15 @@ import { ProfileComponent } from './profile/profile.component';
 import { LeaveplanComponent } from './leaveplan/leaveplan.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
-import { AuthenticationGuard } from './authentication.guard';
+
 import { AddProjectComponent } from './add-project/add-project.component';
 import { EmployeeListComponent } from './employee-list/employee-list.component';
 import { ManageLeaveComponent } from './manage-leave/manage-leave.component';
 import { AssignTaskComponent } from './assign-task/assign-task.component';
 import { AddEmployeeComponent } from './add-employee/add-employee.component';
-import { AllTaskStatusComponent } from './all-task-status/all-task-status.component';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDialogModule } from '@angular/material/dialog';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { AllTaskStatusComponent } from './all-task-status/all-task-status.compon
     ManageLeaveComponent,
     AssignTaskComponent,
     AddEmployeeComponent,
-    AllTaskStatusComponent
+    ForgotPasswordComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -57,9 +59,12 @@ import { AllTaskStatusComponent } from './all-task-status/all-task-status.compon
     HttpClientModule,
     RouterModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule,
+    MatDialogModule
+
   ],
-  providers: [AuthenticationGuard],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

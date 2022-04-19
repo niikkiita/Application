@@ -6,9 +6,11 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
 import { AllTaskStatusComponent } from './all-task-status/all-task-status.component';
 import { AppComponent } from './app.component';
 import { AssignTaskComponent } from './assign-task/assign-task.component';
+import { AuthGuard } from './auth.guard';
 import { AvailableComponent } from './available/available.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { EmployeeListComponent } from './employee-list/employee-list.component';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { HomeComponent } from './home/home.component';
 import { LeaveplanComponent } from './leaveplan/leaveplan.component';
 import { LoginComponent } from './login/login.component';
@@ -18,25 +20,24 @@ import { RegisterUserComponent } from './register-user/register-user.component';
 import { TaskComponent } from './task/task.component';
 
 const routes: Routes = [
-  {path:'',pathMatch:'full',redirectTo:'dashboard'},
+  {path:'',pathMatch:'full',redirectTo:'home'},
   {path:'home',component:HomeComponent},
   {path:'login',component:LoginComponent},
-  {path:'dashboard',component:DashboardComponent},
   {path:'register-user',component:RegisterUserComponent},
-  {path:'dashboard',component:DashboardComponent},
-  {path:'profile',component:ProfileComponent},
-  {path:'available',component:AvailableComponent},
-  {path:'leave',component:LeaveplanComponent},
-  {path:'task',component:TaskComponent},
-  {path:'admin-dashboard',component:AdminDashboardComponent},
-  {path:'add-project', component:AddProjectComponent},
-  {path:'employee-list',component:EmployeeListComponent},
-  {path:'manage-leave',component:ManageLeaveComponent},
-  {path:'assign-task',component:AssignTaskComponent},
-  {path:'employee-list',component:EmployeeListComponent},
-  {path:'add-employee',component:AddEmployeeComponent},
-  {path:'all-task-status',component:AllTaskStatusComponent}
-
+  {path:'dashboard',component:DashboardComponent,canActivate:[AuthGuard]},
+  {path:'profile',component:ProfileComponent,canActivate:[AuthGuard]},
+  {path:'available',component:AvailableComponent,canActivate:[AuthGuard]},
+  {path:'leave',component:LeaveplanComponent,canActivate:[AuthGuard]},
+  {path:'task',component:TaskComponent,canActivate:[AuthGuard]},
+  {path:'admin-dashboard',component:AdminDashboardComponent,canActivate:[AuthGuard]},
+  {path:'add-project', component:AddProjectComponent,canActivate:[AuthGuard]},
+  {path:'employee-list',component:EmployeeListComponent,canActivate:[AuthGuard]},
+  {path:'manage-leave',component:ManageLeaveComponent,canActivate:[AuthGuard]},
+  {path:'assign-task',component:AssignTaskComponent,canActivate:[AuthGuard]},
+  {path:'employee-list',component:EmployeeListComponent,canActivate:[AuthGuard]},
+  {path:'add-employee',component:AddEmployeeComponent,canActivate:[AuthGuard]},
+  {path:'all-task-status',component:AllTaskStatusComponent,canActivate:[AuthGuard]},
+  {path:'forgot-password',component:ForgotPasswordComponent}
 ];
 
 @NgModule({

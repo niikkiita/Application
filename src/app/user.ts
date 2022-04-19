@@ -7,5 +7,6 @@ export class User {
     cpassword!:string;
     gender!:string;
     authId!:number;
-    
+    otp!:number;  
+    newProfileCheckId!:number; 
 }

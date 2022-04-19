@@ -17,11 +17,13 @@ export class LoginComponent implements OnInit {
     emailId: '',
     password: ''
   }
+  token!:string;
   constructor(private loginService: LoginService, private router: Router) { }
 
  
   onSubmit() {
     this.loginService.updateApprovalMessage(this.credentials.emailId);
+<<<<<<< HEAD
       
     
     if ((this.credentials.emailId != "" && this.credentials.password != "") && (this.credentials.emailId != null && this.credentials.password != null)) {
@@ -58,6 +60,21 @@ export class LoginComponent implements OnInit {
           )
           this.router.navigate(['./dashboard']);
         }
+=======
+    //this.getUserId();
+    if ((this.credentials.emailId != "" && this.credentials.password != "") && (this.credentials.emailId != null && this.credentials.password != null)) {
+      this.loginService.logInThe(this.credentials).subscribe(
+        data => {
+          
+
+    localStorage.setItem('form-data', data.emailId );
+    localStorage.setItem('form-data1', data.password);
+          if(this.loginService.newProfileCheckId===1)
+          this.router.navigate(['./dashboard']);
+          else
+          this.router.navigate(['./profile']);
+          alert("log in")
+>>>>>>> bd32225a398daff928bf0462eb4d1c3036116fd2
         },
         error => {
           Swal.fire(
@@ -67,17 +84,17 @@ export class LoginComponent implements OnInit {
           )
         }
       );
-      }
+    }
     else {
       Swal.fire('Pls Enter Email AND Password');
     }
     this.getUserId(); 
   }
 
-  getUserId()
-  {
+  getUserId() {
     this.loginService.getUserId(this.credentials.emailId).subscribe(
       data => {
+<<<<<<< HEAD
         this.loginService.loggInUserId=data.userid;
         
       }
@@ -106,12 +123,21 @@ export class LoginComponent implements OnInit {
   
   
 
+=======
+        this.loginService.newProfileCheckId=data.newProfileCheckId;
+        this.loginService.loggInUserId = data.userid;
+        console.log(data.userid)
+      }
+    )
+  }
+>>>>>>> bd32225a398daff928bf0462eb4d1c3036116fd2
 
   ngOnInit(): void {
     // for getting data off profile for leave
-   
+
   }
 
+<<<<<<< HEAD
 
   ss()
   {
@@ -132,4 +158,8 @@ export class LoginComponent implements OnInit {
     title: 'Success'
   })
   }
+=======
+ 
+
+>>>>>>> bd32225a398daff928bf0462eb4d1c3036116fd2
 }

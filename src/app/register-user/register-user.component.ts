@@ -64,6 +64,7 @@ export class RegisterUserComponent implements OnInit {
   }
   userRegister() {
     console.log(this.user);
+    this.user.newProfileCheckId=0;
     this.registerservice.registerUser(this.user).subscribe(data => {
       alert("Successsfully user is registered")
     }, error => alert("not Register"));

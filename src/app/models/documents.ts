@@ -1,10 +1,11 @@
 import { Byte } from "@angular/compiler/src/util";
 
 export class Documents {
-    documentId!:number;
+    
+    id!:string;
     data!:Byte;
-    fileName!:String;
-    fileType!:String;
+    name!:string;
+    type!:string;
     profileId!:number;
 	userid!:number;
     currentProjectId!:number;

@@ -23,33 +23,51 @@ export class ProfileComponent implements OnInit {
   currentFile?: File;
   progress = 0;
   message = '';
-  email!:string;
-  projectName!:string;
-  projectId!:number;
-
+  email!: string;
+  projectName!: string;
+  projectId!: number;
+  counter!: number;
   fileInfos?: Observable<any>;
-
-  constructor(private userService: UserService, private authservice:AuthService,private registerService:RegisterService, private taskService:TaskService, private loginService:LoginService ,  private projectService:ProjectsService, private uploadService: FileUploadServiceService) { }
+  identificationId!:number;
+  newProfileCheckId!:number;
+  constructor(private userService: UserService, private authservice: AuthService, private registerService: RegisterService, private taskService: TaskService, private loginService: LoginService, private projectService: ProjectsService, private uploadService: FileUploadServiceService) { }
 
   ngOnInit(): void {
-    this.email=this.loginService.logginUserIdentification;
-this.getUserNameById();
+    this.email = this.loginService.logginUserIdentification;
+    //this.counter=1;
+       this.getUserNameById();
     this.fileInfos = this.uploadService.getFiles();
   }
 
   profile: Profile = new Profile();
 
   addprofile(): void {
-    this.profile.currentProject=this.projectName;
-    this.profile.currentProjectId=this.projectId;
-    console.log(this.profile);
-    this.userService.addprofile(this.profile).subscribe(
-      data => {
-        alert("Saved Success")
-      },
-      error => {
-        alert("Not saved");
-      });
+    this.profile.currentProject = this.projectName;
+    this.profile.currentProjectId = this.projectId;
+    if (this.loginService.newProfileCheckId===0) {
+      console.log(this.profile);
+      this.userService.addprofile(this.profile).subscribe(
+        data => {
+        this.newProfileId();
+        this.getUserNameById();
+          alert("Saved Success")
+        },
+        error => {
+          alert("Not saved");
+        });
+    }
+    else{
+      alert("cant save");
+    }
+  }
+
+  newProfileId()
+  {
+    this.userService.changeIdentificationId(this.loginService.loggInUserId,1).subscribe(
+      data=>{
+
+      },error=>alert("Id not changed")
+    )
   }
 
   selectFile(event: any): void {
@@ -86,34 +104,47 @@ this.getUserNameById();
     }
   }
 
-  logout()
-  {
+  logout() {
     this.authservice.logoutUser();
-  } 
-  getUserNameById()
-  {
-    let userId=this.loginService.loggInUserId;
-      this.loginService.getUserId(this.email).subscribe(
-       data =>   {
-            this.profile.userid=userId;
-            this.profile.userName=data.name;
-            this.profile.emailId=data.emailId;
-            console.log(data,userId)
-       },
-       error => {
+  }
+  getUserNameById() {
+    let userId = this.loginService.loggInUserId;
+    this.loginService.getUserId(this.email).subscribe(
+      data => {
+        this.profile.userid = userId;
+        this.profile.userName = data.name;
+        this.profile.emailId = data.emailId;
+        this.loginService.newProfileCheckId=data.newProfileCheckId; 
+        console.log(data.newProfileCheckId);      
+        console.log(data, userId)
+      },
+      error => {
 
-       }
-      );
+      }
+    );
   }
 
-  getProject()
+  getProject() {
+    this.projectService.getProject(this.projectId).subscribe(
+      data => {
+        console.log(data)
+        this.projectName = data.pName;
+      }
+    )
+  }
+
+  getProfile()
   {
-this.projectService.getProject(this.projectId).subscribe(
-  data => {
-    console.log(data)
-    this.projectName=data.pName;
+
   }
-)
-  }
+  // setIdentificationId()
+  // {
+  //   this.identificationId=1;
+  //  this.loginService.setIdentificationId(this.identificationId,this.projectId).subscribe(
+  //   data => {
+     
+  //   }
+  // ) 
+  // }
 
 }

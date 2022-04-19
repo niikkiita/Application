@@ -36,22 +36,7 @@
         <table border="1" class="table table-striped  ">
           <thead class="thead-dark">
             <tr>
-              <!--<th>Employee ID</th> -->
-              <!--<th>User id</th> -->
 
-              <!-- documentId!:number;
-    data!:Byte;
-    fileName!:String;
-    fileType!:String;
-    profileId!:number;
-	userid!:number;
-    currentProjectId!:number;
-	skillSet="";
-    experience!:"";
-	currentProject="";
-	releaseDate!:Date ;
-    emailId!:"";
-    userName!:""; -->
               <th>User Id</th>
               <th>User Name</th>
               <th>Project Id</th>
@@ -73,10 +58,25 @@
               <td>{{emp.experience}}</td>
               <td>{{emp.releaseDate}}</td>
 
-              <!-- / <td >{{docs.fileName}}</td> -->
+
             </tr>
           </tbody>
         </table>
+
+        <!-- <form>
+            <div >
+              <label for="exampleInputId">doc ID</label>   
+              <input type="text" [(ngModel)]="documentObj.id" name="id" class="form-control" id="exampleInputId"
+                aria-describedby="idHelp" placeholder="User ID">
+                <button type="button" class="button" (click)="getFiles()">check</button>
+            </div>
+        </form> -->
+
+        <ul class="list-group list-group-flush" *ngFor="let file of fileInfos | async">
+          <li class="list-group-item">
+            <a [download]="file.name"  [href]="file.url">{{ file.name }}</a>
+          </li>
+        </ul>
 
       </div>
     </main>
