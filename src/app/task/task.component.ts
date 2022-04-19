@@ -25,16 +25,19 @@ export class TaskComponent implements OnInit {
   ngOnInit(): void {
     //let date=this.datepipe.transform(this.myDate,'yyyy-MM-dd');
     console.log();
+    this.emailId=this.loginservice.logginUserIdentification;
+    this.userId=this.loginservice.loggInUserId;
+    this.gettasks();
   }
 
-  addEmail() {
-    //console.log(this.emailId);
-    this.userService.getProfileData(this.emailId).subscribe(data => {
-      //console.log(data)
-      this.userId = data.userid;
-      this.gettasks();
-    }, error => alert("not Register"));
-  }
+  // addEmail() {
+  //   //console.log(this.emailId);
+  //   this.userService.getProfileData(this.emailId).subscribe(data => {
+  //     //console.log(data)
+  //     this.userId = data.userid;
+  //     this.gettasks();
+  //   }, error => alert("not Register"));
+  // }
   gettasks() {
     this.taskservice.gettaskById(this.userId).subscribe(data => {
       // console.log(data)

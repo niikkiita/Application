@@ -6,4 +6,6 @@ export class User {
     password!:string;
     cpassword!:string;
     gender!:string;
+    authId!:number;
+    
 }

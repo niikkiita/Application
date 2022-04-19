@@ -131,3 +131,13 @@ form .pass-link a:hover,
 form .signup-link a:hover{
   text-decoration: underline;
 }
+
+
+
+
+
+
+
+.colored-toast.swal2-icon-success {
+  background-color: #a5dc86 !important;
+}

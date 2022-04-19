@@ -7,6 +7,10 @@
     integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
     crossorigin="anonymous" />
 
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
 </head>
 <body id="body">
   <div class="container">
@@ -49,7 +53,7 @@
             </div>
             <div class="form-group col-md-6">
               <label for="inputEmail4">EndDate</label>
-              <input type="date" class="form-control" id="inputEmail4" [(ngModel)]="leave.endDate"   name="eda" placeholder="Enter date till,you want leave">
+              <input type="date" class="form-control" id="inputEmail4" [(ngModel)]="leave.endDate"   name="eda"  placeholder="Enter date till,you want leave">
             </div>
             <br>
             <br>
@@ -60,11 +64,11 @@
             </div>
           </div>
           <br>
-          <button type="submit" class="button button1" (click)="signInAddLeavePlusReloaddata()">Sign in</button>
+          <button type="submit" class="button button1" (click)="addLeaveWithValidation()">Apply</button>
         </form>
         <br>
 {{email}}
-
+{{date}}
         <table  border="1" class="table table-striped " >
           <thead class="thead-dark">
             <tr>

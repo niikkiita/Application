@@ -34,7 +34,17 @@
     <main>
       <div class="main__container">
 
-
+        <form>
+          <div class="form-group">
+           <div class ="form-row">
+           <input type="text" [(ngModel)]="taskObj.taskId" class="form-control" id="taskId" placeholder="Taskid"
+              name="projectid">
+             </div>
+             <button type="button" (click)="updateStatus()" class="glow-on-hover">Mark as Complete</button> 
+           
+         </div>
+       </form>
+      <br>
 
         <form>
           <table border="1" class="table table-striped  ">
@@ -63,25 +73,7 @@
             </tbody>
           </table>
         </form>
-        <form>
-         <div class="form-group">
-          <div class ="form-row">
-            <label for="emailId"><b>Email id</b></label>
-            <input type="text" [(ngModel)]="emailId" class="form-control" id="emailId" placeholder="Emailid"
-              name="projectid">
-            <button type="submit" (click)="addEmail()" class="button1">Send</button>
-          </div>
-          <div class ="form-row">
-          <input type="text" [(ngModel)]="taskObj.taskId" class="form-control" id="taskId" placeholder="Taskid"
-              name="projectid">
-            </div>
-              <!-- <input type="date" [(ngModel)]="Date" class="form-control" id="DateId" placeholder="Taskid"
-              name="Date">    -->
-             
-            <button type="button" (click)="updateStatus()" class="glow-on-hover">Mark as Complete</button> 
-          
-        </div>
-      </form>
+        
       {{userId}}
 
   </div>

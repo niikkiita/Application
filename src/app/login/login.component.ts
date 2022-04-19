@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoginService } from '../login.service';
+import { User } from '../user';
+import Swal from 'sweetalert2';
+import { getCurrencySymbol } from '@angular/common';
 
 @Component({
   selector: 'app-login',
@@ -9,30 +12,66 @@ import { LoginService } from '../login.service';
 })
 export class LoginComponent implements OnInit {
 
+  user:User=new User();
   credentials = {
-    emailId: 'mayurr@gmail.com',
-    password: 'password'
+    emailId: '',
+    password: ''
   }
   constructor(private loginService: LoginService, private router: Router) { }
 
+ 
   onSubmit() {
     this.loginService.updateApprovalMessage(this.credentials.emailId);
-    this.getUserId();   
+      
+    
     if ((this.credentials.emailId != "" && this.credentials.password != "") && (this.credentials.emailId != null && this.credentials.password != null)) {
       this.loginService.logInThe(this.credentials).subscribe(
         response => {
-          alert("log in")
+          this.user=response;
+          console.log(response)
+         // console.log(response.authID)
+          //console.log(response.userid)
+          if(response===null){
+            Swal.fire({
+              icon: 'error',
+              title: 'Oops...Wrong Credentials',
+              text: 'Pls, Enter correct Sredentilas',
+              footer: '<a href="/home">Why do I have this issue?</a>'
+            })
+          }
+         if(response.authID==1)
+         {
+          Swal.fire(
+            'WELCOME!',
+            'You have logged in successfully!',
+            'success'
+          )
+          this.router.navigate(['./admin-dashboard']);
+         }
 
+          else
+        {
+          Swal.fire(
+            'WELCOME!',
+            'You have logged in successfully!',
+            'success'
+          )
           this.router.navigate(['./dashboard']);
+        }
         },
         error => {
-          alert("not correct deatils")
+          Swal.fire(
+            'Are you connected to Internet?',
+            'Pla,make sure you have stable internet connection',
+            'question'
+          )
         }
       );
       }
     else {
-      console.log("Empty or null values")
+      Swal.fire('Pls Enter Email AND Password');
     }
+    this.getUserId(); 
   }
 
   getUserId()
@@ -40,14 +79,57 @@ export class LoginComponent implements OnInit {
     this.loginService.getUserId(this.credentials.emailId).subscribe(
       data => {
         this.loginService.loggInUserId=data.userid;
-        console.log(data.userid)
+        
       }
     )
   }
  
+  simpleAlert(){  
+    //Swal.fire('Hello Angular');  
+    Swal.fire({
+      title: 'Do you want to save the changes?',
+      showDenyButton: true,
+      showCancelButton: true,
+      confirmButtonText: 'Save',
+      denyButtonText: `Don't save`,
+    }).then((result) => {
+      /* Read more about isConfirmed, isDenied below */
+      if (result.isConfirmed) {
+        Swal.fire('Saved!', '', 'success')
+      } else if (result.isDenied) {
+        Swal.fire('Changes are not saved', '', 'info')
+      }
+    });
+  } 
+
+
+  
+  
+
+
   ngOnInit(): void {
     // for getting data off profile for leave
    
   }
 
+
+  ss()
+  {
+    const Toast = Swal.mixin({
+    toast: true,
+    position: 'top-right',
+    iconColor: 'green',
+    customClass: {
+      popup: 'colored-toast'
+    },
+    showConfirmButton: false,
+    timer: 3000,
+    timerProgressBar: true
+  })
+   Toast.fire({
+     color:'red',
+    icon: 'success',
+    title: 'Success'
+  })
+  }
 }

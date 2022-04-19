@@ -38,13 +38,11 @@
         <form class="search">
           <div class="input-group">
             <div class="form-outline">
-              <input type="number" [(ngModel)]="profileObj.currentProjectId" name="id" id="form1" class="form-control"
-                placeholder="Project ID" />
+              <input type="text" [(ngModel)]="profileObj.currentProjectId" name="id" id="form1" class="form-control"
+       (keyup)="getProfileData()"         placeholder="Project ID" />
               <!-- <label class="form-label" for="form1">Project ID</label> -->
             </div>&nbsp;
-            <button type="button" class="btn btn-primary" (click)="getProfileData()">
-              <i class="fas fa-search fa-lg"></i>
-            </button>
+            
           </div>
           <!-- <div class="form-group">
                 <label for="exampleInputId">Project ID</label>
@@ -59,7 +57,7 @@
             
             <div class="form-group">
               <label for="exampleInputId">User ID</label>   
-              <input type="number" [(ngModel)]="taskObj.userid" name="id" (keyup)="getUserData()"  class="form-control" id="exampleInputId"
+              <input type="text" [(ngModel)]="taskObj.userid" name="id" (keyup)="getUserData()"  class="form-control" id="exampleInputId"
                 aria-describedby="idHelp" placeholder="User ID">
             </div>&nbsp;&nbsp;&nbsp;&nbsp;
             

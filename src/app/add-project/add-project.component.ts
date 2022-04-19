@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth.service';
 import { Project } from '../models/project';
-
+import Swal from 'sweetalert2';
 import { ProjectsService } from '../projects.service';
 
 @Component({
@@ -20,12 +20,37 @@ export class AddProjectComponent implements OnInit {
   userRegister() {
     this.projectservice.registerProject(this.project).subscribe(
       response => {
-        alert("Details Added")
       },
       error => {
-        alert("not correct deatils")
+        
       }
       );
+  }
+
+  userRegisterWithVal()
+  {
+    Swal.fire({
+      title: 'Sure !!... All deatils are correct?',
+      text: 'Make sure, You have entered correct deatils' ,
+      showDenyButton: true,
+      showCancelButton: true,
+      confirmButtonText: 'Save',
+      denyButtonText: `Don't save`,
+      showClass: {
+        popup: 'animate__animated animate__bounceIn'
+      },
+      hideClass: {
+        popup: 'animate__animated animate__bounceOut'
+      }
+    }).then((result) => {
+      /* Read more about isConfirmed, isDenied below */
+      if (result.isConfirmed) {
+        this.userRegister();
+        Swal.fire('Project Added Successfully!', '', 'success')
+      } else if (result.isDenied) {
+        Swal.fire('Project not added', '', 'info')
+      }
+    })
   }
   logout()
   {
