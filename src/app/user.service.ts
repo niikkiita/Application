@@ -52,7 +52,7 @@ export class UserService {
 
   // apply new project
   applyProject(profileId: number, profile: Profile): Observable<any> {
-    return this.http.put<any>('http://localhost:8080/profile/applyinternalproject/' + profileId, profile);
+    return this.http.put<any>('http://localhost:8080/profile/applynewproject/' + profileId, profile);
   }
 
   // get ProjectsList whoe want change in projectt

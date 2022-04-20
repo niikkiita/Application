@@ -39,10 +39,10 @@
           <div class="input-group">
             <div class="form-outline">
               <input type="text" [(ngModel)]="profileObj.currentProjectId" name="id" id="form1" class="form-control"
-       (keyup)="getProfileData()"         placeholder="Project ID" />
+                (keyup)="getProfileData()" placeholder="Project ID" />
               <!-- <label class="form-label" for="form1">Project ID</label> -->
             </div>&nbsp;
-            
+
           </div>
           <!-- <div class="form-group">
                 <label for="exampleInputId">Project ID</label>
@@ -54,13 +54,13 @@
         <br>
         <form>
           <div class="form-row">
-            
+
             <div class="form-group">
-              <label for="exampleInputId">User ID</label>   
-              <input type="text" [(ngModel)]="taskObj.userid" name="id" (keyup)="getUserData()"  class="form-control" id="exampleInputId"
-                aria-describedby="idHelp" placeholder="User ID">
+              <label for="exampleInputId">User ID</label>
+              <input type="text" [(ngModel)]="taskObj.userid" name="id" (keyup)="getUserData()" class="form-control"
+                id="exampleInputId" aria-describedby="idHelp" placeholder="User ID">
             </div>&nbsp;&nbsp;&nbsp;&nbsp;
-            
+
             <div class="form-group">
               <label for="exampleInputId">Task</label>
               <input type="text" name="id1" [(ngModel)]="taskObj.taskDetails" class="form-control" id="exampleInputId"
@@ -80,14 +80,14 @@
             </div>
           </div>
           <br>
-          
+
           &nbsp;
-          <button type="submit" class="btn btn-success" (click)="addTask()">Add Task</button> &nbsp;
+          <button type="submit" class="glow-on-hover" (click)="addTaskWithVal()">Add Task</button> &nbsp;
           <!-- <button type="submit" class="btn btn-success" (click)="getUserData()">Validate</button> -->
-   
+
 
         </form>
-<br><br>
+        <br><br>
         <!-- <h3>Project Details</h3> -->
         <form>
           <table border="1" class="table table-striped  ">
@@ -117,7 +117,7 @@
         </form>
 
         <br>
-        
+
         <br>
 
 

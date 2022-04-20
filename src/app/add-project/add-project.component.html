@@ -38,12 +38,7 @@
       <main>
           <div class="form">
         <form (ngSubmit)="userRegisterWithVal()">
-            <div class="form-group">
-                <label for="exampleInputId">Project ID</label>
-                <input type="number" [(ngModel)]="project.pId" name="id" class="form-control" id="exampleInputId"
-                    aria-describedby="idHelp" placeholder="Enter Id">
-                <!-- <small id="emailHelp" class="form-text text-muted"></small>-->
-            </div>
+            
             <div class="form-group">
                 <label for="exampleInputName">Project Name</label>
                 <input type="text" [(ngModel)]="project.pName" name="pname" class="form-control" id="exampleInputName"

@@ -13,8 +13,8 @@ export class LoginComponent implements OnInit {
 
   user:User=new User();
   credentials = {
-    emailId: '',
-    password: ''
+    emailId: 'mayurpatil333999@gmail.com',
+    password: 'mayur'
   }
   token!:string;
   constructor(private loginService: LoginService, private router: Router) { }
