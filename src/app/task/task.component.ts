@@ -1,5 +1,6 @@
 
 import { Component, OnInit } from '@angular/core';
+import Swal from 'sweetalert2';
 import { AuthService } from '../auth.service';
 import { LoginService } from '../login.service';
 import { Task } from '../models/task';
@@ -38,6 +39,33 @@ export class TaskComponent implements OnInit {
   //     this.gettasks();
   //   }, error => alert("not Register"));
   // }
+
+
+  addProfileWithVal()
+  {
+    Swal.fire({
+      title: 'Sure!!... Task is Completed?',
+     text: 'Make sure, You have Completed the task before updating the status' ,
+      showDenyButton: true,
+      showCancelButton: true,
+      confirmButtonText: 'Save',
+      denyButtonText: `Don't save`,
+      showClass: {
+        popup: 'animate__animated animate__bounceIn'
+      },
+      hideClass: {
+        popup: 'animate__animated animate__bounceOut'
+      }
+    }).then((result) => {
+      /* Read more about isConfirmed, isDenied below */
+      if (result.isConfirmed) {
+        this.updateStatus();
+        Swal.fire('Status Updated!', '', 'success')
+      } else if (result.isDenied) {
+        Swal.fire('Not Updated', '', 'info')
+      }
+    })
+  }
   gettasks() {
     this.taskservice.gettaskById(this.userId).subscribe(data => {
       // console.log(data)

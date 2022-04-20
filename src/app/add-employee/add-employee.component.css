@@ -455,21 +455,24 @@ main {
     background-color: #39447a; 
     border: none;
     color: white;
-    padding: 04px 12px;
+    padding: 7px 15px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 16px;
+    font-size: 12px;
     margin: 4px 2px;
+    height: 38px;
+    width: 80px;
     transition-duration: 0.4s;
     cursor: pointer;
     border-radius: 12px
   }
   
   .button1 {
-    background-color: blue; 
+    background-color:#0cb8b6; 
     color: white; 
-    border: 2px solid blue;
+    
+    border: 2px solid black;
     
   }
   

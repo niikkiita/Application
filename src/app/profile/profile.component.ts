@@ -10,6 +10,7 @@ import { TaskService } from '../task.service';
 import { RegisterService } from '../register.service';
 import { ProjectsService } from '../projects.service';
 import { AuthService } from '../auth.service';
+import Swal from 'sweetalert2';
 
 
 @Component({
@@ -41,6 +42,33 @@ export class ProfileComponent implements OnInit {
 
   profile: Profile = new Profile();
 
+  addProfileWithVal()
+  {
+    Swal.fire({
+      title: 'Do you want to add details?',
+      // text: 'Make sure, You have entered correct deatils' ,
+      showDenyButton: true,
+      showCancelButton: true,
+      confirmButtonText: 'Save',
+      denyButtonText: `Don't save`,
+      showClass: {
+        popup: 'animate__animated animate__bounceIn'
+      },
+      hideClass: {
+        popup: 'animate__animated animate__bounceOut'
+      }
+    }).then((result) => {
+      /* Read more about isConfirmed, isDenied below */
+      if (result.isConfirmed) {
+        this.addprofile();
+        Swal.fire('Details Added!', '', 'success')
+      } else if (result.isDenied) {
+        Swal.fire('Not Added', '', 'info')
+      }
+    })
+  }
+
+
   addprofile(): void {
     this.profile.currentProject = this.projectName;
     this.profile.currentProjectId = this.projectId;
@@ -50,10 +78,10 @@ export class ProfileComponent implements OnInit {
         data => {
           this.newProfileId();
           this.getUserNameById();
-          alert("Saved Success")
+         
         },
         error => {
-          alert("Not saved");
+         
         });
     }
     else {

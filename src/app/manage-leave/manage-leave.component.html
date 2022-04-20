@@ -35,30 +35,30 @@
             <div class="main__container">
 
                 <div class="form">
-                    <form >
+                    <form>
                         <div class="form-group">
                             <label for="exampleInputId">Leave ID</label>
-                            <input type="number" [(ngModel)]="leaveObj.leaveId" name="id" class="form-control" id="exampleInputId"
-                                aria-describedby="idHelp" placeholder="Leave Id">
-                          
+                            <input type="number" [(ngModel)]="leaveObj.leaveId" name="id" class="form-control"
+                                id="exampleInputId" aria-describedby="idHelp" placeholder="Leave Id">
+
                         </div>
                         <br>
                         <div class="form-group">
                             <label for="exampleInputName">Reason</label>
-                            <input type="text" [(ngModel)]="leaveObj.reason" name="description" class="form-control" id="description"
-                                placeholder="Decline Reason">
+                            <input type="text" [(ngModel)]="leaveObj.reason" name="description" class="form-control"
+                                id="description" placeholder="Decline Reason">
                         </div><br>
-                        <button type="submit" class="glow-on-hover1" (click)="updateData()">Decline</button> &nbsp; 
-                        <button type="submit" (click)="onApproved()"  class="glow-on-hover2" >Approve</button>
+                        <button type="submit" class="glow-on-hover1" (click)="declineWithVal()">Decline</button> &nbsp;
+                        <button type="submit" (click)="approveWithVal()" class="glow-on-hover2">Approve</button>
                     </form>
-                    
 
-                </div> 
+
+                </div>
 
 
                 <br>
                 <h2>Employee's Leave Details</h2>
-                
+
                 <table border="1" class="table table-striped  ">
                     <thead class="thead-dark">
                         <tr>
@@ -90,12 +90,6 @@
                 </table>
 
                 <br><br>
-
-                
- 
-                
-                
-
 
 
             </div>
@@ -138,9 +132,9 @@
                 </div>
                 <div class="sidebar__link">
                     <i class="fa fa-thumb-tack" aria-hidden="true"></i>
-          
+
                     <a routerLink="/all-task-status">Task History</a>
-                  </div>
+                </div>
                 <div class="sidebar__link">
                     <i class="fa fa-thumb-tack" aria-hidden="true"></i>
                     <a routerLink="/add-employee">Add Employee</a>

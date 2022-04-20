@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import Swal from 'sweetalert2';
 import { AuthService } from '../auth.service';
 import { Profile } from '../models/profile';
 import { Task } from '../models/task';
@@ -60,6 +61,33 @@ export class AssignTaskComponent implements OnInit {
         );
   }
   
+  addTaskWithVal()
+  {
+    Swal.fire({
+      title: 'Sure !!... All deatils are correct?',
+      text: 'Make sure, You have entered correct deatils' ,
+      showDenyButton: true,
+      showCancelButton: true,
+      confirmButtonText: 'Save',
+      denyButtonText: `Don't save`,
+      showClass: {
+        popup: 'animate__animated animate__bounceIn'
+      },
+      hideClass: {
+        popup: 'animate__animated animate__bounceOut'
+      }
+    }).then((result) => {
+      /* Read more about isConfirmed, isDenied below */
+      if (result.isConfirmed) {
+        this.addTask();
+        Swal.fire('Task Added Successfully!', '', 'success')
+      } else if (result.isDenied) {
+        Swal.fire('Task not added', '', 'info')
+      }
+    })
+  }
+
+
   addTask(){
     this.taskService.addTaskDetails(this.taskObj).subscribe
     (
