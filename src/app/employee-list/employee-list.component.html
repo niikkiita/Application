@@ -63,22 +63,24 @@
           </tbody>
         </table>
 
-        <!-- <form>
-            <div >
-              <label for="exampleInputId">doc ID</label>   
-              <input type="text" [(ngModel)]="documentObj.id" name="id" class="form-control" id="exampleInputId"
-                aria-describedby="idHelp" placeholder="User ID">
-                <button type="button" class="button" (click)="getFiles()">check</button>
-            </div>
-        </form> -->
+        <br><br>
+        <h2><i class="bi bi-card-heading"> Documents of Emplyees</i></h2>
+        <div>
+          <!-- <div class="card-header">List of Files</div> -->
+          <ol>
+            <ng-container *ngFor="let file of fileInfos | async; let i=index ">
+           <li *ngIf="i < 100" style="font-size:20px" > 
+              <!-- class="list-group-item"> -->
+              <a href="{{ file.url }}">{{ file.name }}</a>
+            </li>
+          </ng-container>
+          </ol>
 
-        <ul class="list-group list-group-flush" *ngFor="let file of fileInfos | async">
-          <li class="list-group-item">
-            <a [download]="file.name"  [href]="file.url">{{ file.name }}</a>
-          </li>
-        </ul>
+        </div>
+
 
       </div>
+
     </main>
 
     <div id="sidebar">

@@ -3,7 +3,6 @@ import { Router } from '@angular/router';
 import { LoginService } from '../login.service';
 import { User } from '../user';
 import Swal from 'sweetalert2';
-import { getCurrencySymbol } from '@angular/common';
 
 @Component({
   selector: 'app-login',
@@ -23,16 +22,13 @@ export class LoginComponent implements OnInit {
  
   onSubmit() {
     this.loginService.updateApprovalMessage(this.credentials.emailId);
-<<<<<<< HEAD
-      
-    
-    if ((this.credentials.emailId != "" && this.credentials.password != "") && (this.credentials.emailId != null && this.credentials.password != null)) {
+        if ((this.credentials.emailId != "" && this.credentials.password != "") && (this.credentials.emailId != null && this.credentials.password != null)) {
       this.loginService.logInThe(this.credentials).subscribe(
         response => {
+          localStorage.setItem('form-data', response.emailId );
+          localStorage.setItem('form-data1', response.password);
           this.user=response;
           console.log(response)
-         // console.log(response.authID)
-          //console.log(response.userid)
           if(response===null){
             Swal.fire({
               icon: 'error',
@@ -50,7 +46,6 @@ export class LoginComponent implements OnInit {
           )
           this.router.navigate(['./admin-dashboard']);
          }
-
           else
         {
           Swal.fire(
@@ -58,23 +53,11 @@ export class LoginComponent implements OnInit {
             'You have logged in successfully!',
             'success'
           )
-          this.router.navigate(['./dashboard']);
-        }
-=======
-    //this.getUserId();
-    if ((this.credentials.emailId != "" && this.credentials.password != "") && (this.credentials.emailId != null && this.credentials.password != null)) {
-      this.loginService.logInThe(this.credentials).subscribe(
-        data => {
-          
-
-    localStorage.setItem('form-data', data.emailId );
-    localStorage.setItem('form-data1', data.password);
           if(this.loginService.newProfileCheckId===1)
           this.router.navigate(['./dashboard']);
           else
           this.router.navigate(['./profile']);
-          alert("log in")
->>>>>>> bd32225a398daff928bf0462eb4d1c3036116fd2
+                }
         },
         error => {
           Swal.fire(
@@ -84,7 +67,7 @@ export class LoginComponent implements OnInit {
           )
         }
       );
-    }
+      }
     else {
       Swal.fire('Pls Enter Email AND Password');
     }
@@ -94,50 +77,18 @@ export class LoginComponent implements OnInit {
   getUserId() {
     this.loginService.getUserId(this.credentials.emailId).subscribe(
       data => {
-<<<<<<< HEAD
-        this.loginService.loggInUserId=data.userid;
-        
-      }
-    )
-  }
- 
-  simpleAlert(){  
-    //Swal.fire('Hello Angular');  
-    Swal.fire({
-      title: 'Do you want to save the changes?',
-      showDenyButton: true,
-      showCancelButton: true,
-      confirmButtonText: 'Save',
-      denyButtonText: `Don't save`,
-    }).then((result) => {
-      /* Read more about isConfirmed, isDenied below */
-      if (result.isConfirmed) {
-        Swal.fire('Saved!', '', 'success')
-      } else if (result.isDenied) {
-        Swal.fire('Changes are not saved', '', 'info')
-      }
-    });
-  } 
-
-
-  
-  
-
-=======
         this.loginService.newProfileCheckId=data.newProfileCheckId;
         this.loginService.loggInUserId = data.userid;
         console.log(data.userid)
       }
     )
   }
->>>>>>> bd32225a398daff928bf0462eb4d1c3036116fd2
 
   ngOnInit(): void {
     // for getting data off profile for leave
 
   }
 
-<<<<<<< HEAD
 
   ss()
   {
@@ -158,8 +109,26 @@ export class LoginComponent implements OnInit {
     title: 'Success'
   })
   }
-=======
- 
 
->>>>>>> bd32225a398daff928bf0462eb4d1c3036116fd2
+
+
+
+  
+  simpleAlert(){  
+    //Swal.fire('Hello Angular');  
+    Swal.fire({
+      title: 'Do you want to save the changes?',
+      showDenyButton: true,
+      showCancelButton: true,
+      confirmButtonText: 'Save',
+      denyButtonText: `Don't save`,
+    }).then((result) => {
+      /* Read more about isConfirmed, isDenied below */
+      if (result.isConfirmed) {
+        Swal.fire('Saved!', '', 'success')
+      } else if (result.isDenied) {
+        Swal.fire('Changes are not saved', '', 'info')
+      }
+    });
+  } 
 }

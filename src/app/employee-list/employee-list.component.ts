@@ -17,14 +17,14 @@ export class EmployeeListComponent implements OnInit {
   profileObj: Profile = new Profile();
   profileArray: Profile[] = [];
   documentArray: Documents[] = [];
-  fileInfos!: Observable<any>
+  fileInfos!: Observable<any>;
+  selectedFiles?: FileList;
   constructor(private userService: UserService, private authservice: AuthService) { }
 
   ngOnInit(): void {
     this.getAllProfileData();
     this.fileInfos=this.userService.getFiles();
     
-
   }
 
   getAllProfileData() {
@@ -61,6 +61,12 @@ export class EmployeeListComponent implements OnInit {
   //         {saveAs(blob)}
   //       ,error=>alert("error"));
   // }
+
+  
+  
+  selectFile(event: any): void {
+    this.selectedFiles = event.target.files;
+  }
 
   logout() {
     this.authservice.logoutUser();

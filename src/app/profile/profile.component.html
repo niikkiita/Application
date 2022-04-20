@@ -70,6 +70,8 @@
                [(ngModel)]="profile.releaseDate" name="releaseDate">
             <br /> <br />
 
+
+
             <div class="row">
               <div class="col-8">
                 <label class="btn btn-default p-0">
@@ -90,14 +92,13 @@
                 aria-valuemin="0"
                 aria-valuemax="100"
                 [ngStyle]="{ width: progress + '%' }"
-                >
-                  {{ progress }}%
-                </div>
+              >
+                {{ progress }}%
               </div>
-              <div *ngIf="message" class="alert alert-secondary" role="alert">{{ message }}</div>
-              <br><br>
-            <button type="submit" (click)="addprofile()" class="button1">Save</button>
+            </div>
+            <div *ngIf="message" class="alert alert-secondary" role="alert">{{ message }}</div>
           </div>
+          <button type="submit" class="glow-on-hover" (click)="addprofile()">Add</button>
         </form>
       </div>
     </main>
