@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { CommonModule } from '@angular/common'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RegisterUserComponent } from './register-user/register-user.component';
@@ -29,6 +29,7 @@ import { AddEmployeeComponent } from './add-employee/add-employee.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { AllTaskStatusComponent } from './all-task-status/all-task-status.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,7 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
     AssignTaskComponent,
     AddEmployeeComponent,
     ForgotPasswordComponent,
-    
+    AllTaskStatusComponent
   ],
   imports: [
     BrowserModule,
@@ -61,7 +62,8 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
     ReactiveFormsModule,
     FormsModule,
     BrowserAnimationsModule,
-    MatDialogModule
+    MatDialogModule,
+    CommonModule
 
   ],
   providers: [],

@@ -1,7 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap");
 
 
-
 ::-webkit-scrollbar {
   width: 5px;
   height: 6px;
@@ -203,25 +202,25 @@ main {
   box-shadow: 5px 5px 13px #ededed, -5px -5px 13px #ffffff;
 }
 
-.charts_left_title {
+.charts__left__title {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-.charts_left_title > div > h1 {
+.charts__left__title > div > h1 {
   font-size: 24px;
   color: #2e4a66;
   margin-bottom: 5px;
 }
 
-.charts_left_title > div > p {
+.charts__left__title > div > p {
   font-size: 14px;
   font-weight: 700;
   color: #a5aaad;
 }
 
-.charts_left_title > i {
+.charts__left__title > i {
   color: #ffffff;
   font-size: 20px;
   background: #ffc100;
@@ -239,25 +238,25 @@ main {
   box-shadow: 5px 5px 13px #ededed, -5px -5px 13px #ffffff;
 }
 
-.charts_right_title {
+.charts__right__title {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-.charts_right_title > div > h1 {
+.charts__right__title > div > h1 {
   font-size: 24px;
   color: #2e4a66;
   margin-bottom: 5px;
 }
 
-.charts_right_title > div > p {
+.charts__right__title > div > p {
   font-size: 14px;
   font-weight: 700;
   color: #a5aaad;
 }
 
-.charts_right_title > i {
+.charts__right__title > i {
   color: #ffffff;
   font-size: 20px;
   background: #39447a;
@@ -268,7 +267,7 @@ main {
   padding: 15px;
 }
 
-.charts_right_cards {
+.charts__right__cards {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 20px;
@@ -453,143 +452,110 @@ main {
     display: none;
   }
 }
+.search{
+  position: absolute; 
+  top: 60px; 
+  right: 350px;
+  text-align: right;
+}
 
-/* Form */
-.button1 {
-  padding: 15px 25px;
-  font-size: 15px;
-  text-align: center;
-  cursor: pointer;
+input[type=text] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 1px solid #555;
+  outline: none;
+}
+
+input[type=text]:focus {
+  background-color: lightblue;
+}
+
+input[type=number] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 1px solid #555;
+  outline: none;
+}
+
+input[type=number]:focus {
+  background-color: lightblue;
+}
+.glow-on-hover {
+  width: 100px;
+  height: 50px;
+  border: none;
   outline: none;
   color: #fff;
-  background-color: #2bbfce;;
-  border: none;
-  border-radius: 15px;
-  box-shadow: 0 9px #999;
+  background: #111;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
 }
 
-.button1:hover {background-color: #555955}
-
-.button1:active {
-  background-color: #ffff;
-  box-shadow: 0 5px #666;
-  transform: translateY(4px);
+.glow-on-hover:before {
+  content: '';
+  background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+  position: absolute;
+  top: -2px;
+  left:-2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing 20s linear infinite;
+  opacity: 0;
+  transition: opacity .3s ease-in-out;
+  border-radius: 10px;
 }
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
 
- * {
-     margin: 0;
-     padding: 0;
-     box-sizing: border-box;
-     font-family: 'Poppins', sans-serif
- }
+.glow-on-hover:active {
+  color: #000
+}
 
- body {
-     /* background: linear-gradient(45deg, #ce1e53, #8f00c7); */
-     min-height: 100vh
- }
+.glow-on-hover:active:after {
+  background: transparent;
+}
 
- body::-webkit-scrollbar {
-     display: none
- }
+.glow-on-hover:hover:before {
+  opacity: 1;
+}
 
- .wrapper {
-     max-width: 800px;
-     margin: 80px auto;
-     padding: 30px 45px;
-     box-shadow: 5px 25px 35px #3535356b
- }
+.glow-on-hover:after {
+  z-index: -1;
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background:#3ea175;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+}
 
- .wrapper label {
-     display: block;
-     padding-bottom: 0.2rem
- }
+@keyframes glowing {
+  0% { background-position: 0 0; }
+  50% { background-position: 400% 0; }
+  100% { background-position: 0 0; }
+}
+.header img {
+  float: left;
+  width: 100px;
+  height: 100px;
+  background: #555;
+}
 
- .wrapper .form .row {
-     padding: 0.6rem 0
- }
+.header h1 {
+  position: relative;
+  top: 18px;
+  left: 10px;
+}
 
- .wrapper .form .row .form-control {
-     box-shadow: none
- }
-
- .wrapper .form .option {
-     position: relative;
-     padding-left: 20px;
-     cursor: pointer
- }
-
- .wrapper .form .option input {
-     opacity: 0
- }
-
- .wrapper .form .checkmark {
-     position: absolute;
-     top: 1px;
-     left: 0;
-     height: 20px;
-     width: 20px;
-     border: 1px solid #bbb;
-     border-radius: 50%
- }
-
- .wrapper .form .option input:checked~.checkmark:after {
-     display: block
- }
-
- .wrapper .form .option:hover .checkmark {
-     background: #f3f3f3
- }
-
- .wrapper .form .option .checkmark:after {
-     content: "";
-     width: 10px;
-     height: 10px;
-     display: block;
-     background: linear-gradient(45deg, #ce1e53, #8f00c7);
-     position: absolute;
-     top: 50%;
-     left: 50%;
-     border-radius: 50%;
-     transform: translate(-50%, -50%) scale(0);
-     transition: 300ms ease-in-out 0s
- }
-
- .wrapper .form .option input[type="radio"]:checked~.checkmark {
-     background: #fff;
-     transition: 300ms ease-in-out 0s
- }
-
- .wrapper .form .option input[type="radio"]:checked~.checkmark:after {
-     transform: translate(-50%, -50%) scale(1)
- }
-
- #sub {
-     display: block;
-     width: 100%;
-     border: 1px solid #ddd;
-     padding: 10px;
-     border-radius: 5px;
-     color: #333
- }
-
- #sub:focus {
-     outline: none
- }
-
- @media(max-width: 768.5px) {
-     .wrapper {
-         margin: 30px
-     }
-
-     .wrapper .form .row {
-         padding: 0
-     }
- }
-
- @media(max-width: 400px) {
-     .wrapper {
-         padding: 25px;
-         margin: 20px
-     }
- }
+.message1{
+  text-decoration-color: green;
+}

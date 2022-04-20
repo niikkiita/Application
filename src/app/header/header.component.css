@@ -151,3 +151,16 @@ body{
       font-size: 18px !important;
   }
   }
+
+  .header img {
+    float: left;
+    width: 90px;
+    height: 70px;
+    background:#fff;
+  }
+  
+  .header h1 {
+    position: relative;
+    top: 18px;
+    left: 10px;
+  }
